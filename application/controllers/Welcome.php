@@ -20,7 +20,23 @@ class Welcome extends MY_Controller {
 	 */
 	public function index()
 	{
-    $this->load->helper('form');
-    $this->render('welcome/index_view');
+    // first load the library
+    $this->load->library('make_bread');
+
+    // add the first crumb, the segment being added to the previous crumb's URL
+    $this->make_bread->add('first crumb', 'testing', TRUE);
+
+    // add the second crumb, the segment not being added to the previous crumb's URL
+    $this->make_bread->add('second crumb', 'the_test', TRUE);
+
+    // add another crumb with a absolute URL
+    $this->make_bread->add('test','http://google.com');
+
+    // being the last crumb in the breadcrumb I want this to have no link, so I will only put the title
+    $this->make_bread->add('Testing breadcrumbs');
+
+    // now, let's store the output of the breadcrumb in a variable and show it (preferably inside a view)
+    $breadcrumb = $this->make_bread->output();
+    echo $breadcrumb;
 	}
 }

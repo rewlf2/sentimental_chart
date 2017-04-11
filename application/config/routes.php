@@ -63,7 +63,35 @@ $route['misc/mail'] = 'misc/mail';
 // avenir cms tutorial
 $route['admin'] = 'admin/dashboard';
 
-$route['^(\w{2})/(.*)$'] = '$2';
+$controllers_methods = array(
+  'de' => array(
+    'willkommen/list' => 'welcome/list',
+    'willkommen' => 'welcome'
+  ),
+  'fr' => array(
+    'bienvenu/list' => 'welcome/list',
+    'bienvenu' => 'welcome'
+  )
+);
+
+$route['^(\w{2})/(.*)'] = function($language, $link) use ($controllers_methods)
+{
+  if(array_key_exists($language,$controllers_methods))
+  {
+    foreach($controllers_methods[$language] as $key => $sym_link)
+    {
+      if(strrpos($link, $key,0) !== FALSE)
+      {
+        $new_link = ltrim($link,$key);
+        $new_link = $sym_link.$new_link;
+        break;
+      }
+    }
+    return $new_link;
+  }
+  return $link;
+};
+
 $route['^(\w{2})$'] = $route['default_controller'];
 
 

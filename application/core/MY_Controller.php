@@ -10,8 +10,8 @@ class MY_Controller extends CI_Controller {
     parent::__construct();
     $this->data['page_title'] = 'CI App';
     $this->data['page_description'] = 'CI_App';
-    $this->data['before_closing_head'] = '';
-    $this->data['before_closing_body'] = '';
+    $this->data['before_head'] = '';
+    $this->data['before_body'] = '';
   }
 
   protected function render($the_view = NULL, $template = 'public_master')
@@ -39,6 +39,12 @@ class Admin_Controller extends MY_Controller
   function __construct()
   {
     parent::__construct();
+    $this->data['page_title'] = 'CI App - Dashboard';
+  }
+
+  protected function render($the_view = NULL, $template = 'admin_master')
+  {
+    parent::render($the_view, $template);
   }
 }
 

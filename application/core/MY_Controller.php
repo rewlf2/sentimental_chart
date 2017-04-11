@@ -5,39 +5,69 @@ class MY_Controller extends CI_Controller
 {
   protected $data = array();
   protected $langs = array();
+  protected $default_lang;
+  protected $current_lang;
   function __construct()
   {
     parent::__construct();
-    $this->data['page_title'] = 'CI App';
-    $this->data['before_head'] = '';
-    $this->data['before_body'] = '';
+
+    // First of all let's see what languages we have and also get the default language
+
     $this->load->model('language_model');
-    $languages = $this->language_model->get_all();
-    if($languages !== FALSE)
+    $available_languages = $this->language_model->get_all();
+    if(isset($available_languages))
     {
-      foreach($languages as $language)
+      foreach($available_languages as $lang)
       {
-        $this->langs[$language->slug] = $language->id;
-        if($language->default == '1') $default_language = $language->slug;
+        $this->langs[$lang->slug] = array(
+          'id'=>$lang->id,
+          'slug'=>$lang->slug,
+          'language_directory'=>$lang->language_directory,
+          'language_code'=>$lang->language_code,
+          'default'=>$lang->default
+        );
+        if($lang->default == '1') $this->default_lang = $lang->slug;
       }
     }
 
+    // Verify if we have a language set in the URL;
     $lang_slug = $this->uri->segment(1);
-
+    // If we do, and we have that languages in our set of languages we store the language slug in the session
     if(isset($lang_slug) && array_key_exists($lang_slug, $this->langs))
     {
-      $set_language = $lang_slug;
+      $this->current_lang = $lang_slug;
+      $_SESSION['set_language'] = $lang_slug;
+    }
+    // If not, we look to see if the language session variable is set
+    elseif(isset($_SESSION['set_language']))
+    {
+      $this->current_lang = $_SESSION['set_language'];
+    }
+    // If not, we set the language session to the default language
+    else
+    {
+      $this->current_lang = $this->default_lang;
+      $_SESSION['set_language'] = $this->default_lang;
+    }
+    // Now we store the languages as a $data key, just in case we need them in our views
+    $this->data['langs'] = $this->langs;
+    // Also let's have our current language in a $data key
+    $this->data['current_lang'] = $this->langs[$this->current_lang];
+
+    // For links inside our views we only need the lang slug. If the current language is the default language we don't need to append the language slug to our links
+    if($this->current_lang != $this->default_lang)
+    {
+      $this->data['lang_slug'] = $this->current_lang.'/';
     }
     else
     {
-      $set_language = $default_language;
+      $this->data['lang_slug'] = '';
     }
 
-    if(isset($set_language))
-    {
-      $this->load->library('session');
-      $_SESSION['set_language'] = $set_language;
-    }
+    $this->data['page_title'] = 'CI App';
+    $this->data['page_description'] = 'CI_App';
+    $this->data['before_head'] = '';
+    $this->data['before_body'] = '';
   }
 
   protected function render($the_view = NULL, $template = 'master')

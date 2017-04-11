@@ -4,15 +4,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class MY_Controller extends CI_Controller
 {
   protected $data = array();
+
   protected $langs = array();
+  protected $other_langs = array();
   protected $default_lang;
   protected $current_lang;
+
   function __construct()
   {
     parent::__construct();
 
     // First of all let's see what languages we have and also get the default language
-
     $this->load->model('language_model');
     $available_languages = $this->language_model->get_all();
     if(isset($available_languages))
@@ -21,18 +23,21 @@ class MY_Controller extends CI_Controller
       {
         $this->langs[$lang->slug] = array(
           'id'=>$lang->id,
+          'name'=>$lang->language_name,
           'slug'=>$lang->slug,
           'language_directory'=>$lang->language_directory,
           'language_code'=>$lang->language_code,
           'default'=>$lang->default
         );
-        if($lang->default == '1') $this->default_lang = $lang->slug;
+        if($lang->default == '1') {
+          $this->default_lang = $lang->slug;
+        }
       }
     }
 
     // Verify if we have a language set in the URL;
     $lang_slug = $this->uri->segment(1);
-    // If we do, and we have that languages in our set of languages we store the language slug in the session
+    // If we do, and we have that languages in our set of languages, we store the language slug in the session
     if(isset($lang_slug) && array_key_exists($lang_slug, $this->langs))
     {
       $this->current_lang = $lang_slug;
@@ -54,6 +59,15 @@ class MY_Controller extends CI_Controller
     // Also let's have our current language in a $data key
     $this->data['current_lang'] = $this->langs[$this->current_lang];
 
+
+    // put all other langs (except current lang) in an array
+    $this->data['other_langs'] = [];
+    foreach ($this->langs as $key => $lang) {
+      if($key != $this->current_lang){
+        $this->data['other_langs'][$key] = $lang;
+      }
+    }
+
     // For links inside our views we only need the lang slug. If the current language is the default language we don't need to append the language slug to our links
     if($this->current_lang != $this->default_lang)
     {
@@ -66,8 +80,8 @@ class MY_Controller extends CI_Controller
 
     $this->data['page_title'] = 'CI App';
     $this->data['page_description'] = 'CI_App';
-    $this->data['before_head'] = '';
-    $this->data['before_body'] = '';
+    $this->data['before_closing_head'] = '';
+    $this->data['before_closing_body'] = '';
   }
 
   protected function render($the_view = NULL, $template = 'master')
@@ -92,7 +106,6 @@ class MY_Controller extends CI_Controller
 
 class Admin_Controller extends MY_Controller
 {
-
   function __construct()
   {
     parent::__construct();
@@ -127,8 +140,7 @@ class Public_Controller extends MY_Controller
   {
     parent::__construct();
     $language = $this->data['current_lang'];
-    $idiom = $language['language_directory'];
-    $this->load->language('interface_lang',$idiom);
+    $this->load->language('interface_lang', $language['language_directory']);
   }
 
   protected function render($the_view = NULL, $template = 'public_master')

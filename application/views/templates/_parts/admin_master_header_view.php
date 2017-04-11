@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $page_title;?></title>
     <link href="<?php echo site_url('assets/admin/css/bootstrap.min.css');?>" rel="stylesheet">
-    <?php echo $before_head;?>
+    <?php echo $before_closing_head;?>
   </head>
 <body>
 <?php
@@ -28,9 +28,10 @@ if($this->ion_auth->logged_in()) {
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a href="#">A link</a></li>
-          <li><a href="#">Another link</a></li>
-          <li><a href="<?php echo site_url('admin/user/profile');?>">Profile page</a></li>
+          <li><a href="<?php echo site_url('admin/users');?>">Users</a></li>
+          <li><a href="<?php echo site_url('admin/groups');?>">Groups</a></li>
+          <li><a href="<?php echo site_url('admin/languages');?>">Languages</a></li>
+          <li><a href="<?php echo site_url('admin/pages');?>">Pages</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="<?php echo site_url('admin/user/logout');?>">Logout</a></li>

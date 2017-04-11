@@ -12,8 +12,6 @@ class Welcome extends Public_Controller
 
   public function index()
   {
-    echo $_SESSION['set_language'];
-    echo '<br />';
-    print_r($this->langs);
+    $this->render('public/homepage_view');
   }
 }

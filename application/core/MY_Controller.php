@@ -1,20 +1,46 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MY_Controller extends CI_Controller {
-
+class MY_Controller extends CI_Controller
+{
   protected $data = array();
-
+  protected $langs = array();
   function __construct()
   {
     parent::__construct();
     $this->data['page_title'] = 'CI App';
-    $this->data['page_description'] = 'CI_App';
     $this->data['before_head'] = '';
     $this->data['before_body'] = '';
+    $this->load->model('language_model');
+    $languages = $this->language_model->get_all();
+    if($languages !== FALSE)
+    {
+      foreach($languages as $language)
+      {
+        $this->langs[$language->slug] = $language->id;
+        if($language->default == '1') $default_language = $language->slug;
+      }
+    }
+
+    $lang_slug = $this->uri->segment(1);
+
+    if(isset($lang_slug) && array_key_exists($lang_slug, $this->langs))
+    {
+      $set_language = $lang_slug;
+    }
+    else
+    {
+      $set_language = $default_language;
+    }
+
+    if(isset($set_language))
+    {
+      $this->load->library('session');
+      $_SESSION['set_language'] = $set_language;
+    }
   }
 
-  protected function render($the_view = NULL, $template = 'public_master')
+  protected function render($the_view = NULL, $template = 'master')
   {
     if($template == 'json' || $this->input->is_ajax_request())
     {
@@ -23,7 +49,7 @@ class MY_Controller extends CI_Controller {
     }
     elseif(is_null($template))
     {
-      $this->load->view($the_view, $this->data);
+      $this->load->view($the_view,$this->data);
     }
     else
     {

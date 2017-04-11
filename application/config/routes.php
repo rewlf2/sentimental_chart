@@ -63,6 +63,8 @@ $route['misc/mail'] = 'misc/mail';
 // avenir cms tutorial
 $route['admin'] = 'admin/dashboard';
 
+$route['^(\w{2})/(.*)$'] = '$2';
+$route['^(\w{2})$'] = $route['default_controller'];
 
 
 $route['upload'] = 'welcome/upload';

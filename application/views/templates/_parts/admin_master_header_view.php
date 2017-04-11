@@ -30,6 +30,7 @@ if($this->ion_auth->logged_in()) {
         <ul class="nav navbar-nav">
           <li><a href="#">A link</a></li>
           <li><a href="#">Another link</a></li>
+          <li><a href="<?php echo site_url('admin/user/profile');?>">Profile page</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="<?php echo site_url('admin/user/logout');?>">Logout</a></li>

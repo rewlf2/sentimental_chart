@@ -60,6 +60,11 @@ $route['default_controller'] = 'welcome';
 $route['misc/mail'] = 'misc/mail';
 
 
+// avenir cms tutorial
+$route['admin'] = 'admin/dashboard';
+
+
+
 $route['upload'] = 'welcome/upload';
 
 $route['dashboard'] = 'dashboard';

@@ -20,6 +20,77 @@ class Pages extends Admin_Controller
 
   public function index()
   {
+    $total_pages = $this->page_model->count_rows();
+    $list_pages = array();
+    if($pages = $this->page_model->order_by('created_at, updated_at','desc')->with('translations')->paginate(30,$total_pages))
+    {
+      if(sizeof($pages)==1)
+      {
+        $list_pages[$pages->id] = array(
+          'created_at' => $pages->created_at,
+          'last_update' => $pages->updated_at,
+          'deleted' => $pages->deleted_at,
+          'translations' => array()
+        );
+        if(isset($pages->translations))
+        {
+          foreach ($pages->translations as $translation)
+          {
+            $list_pages[$pages->id]['translations'][$translation->language_slug] = array(
+              'translation_id' => $translation->id,
+              'title' => $translation->title,
+              'created_at' => $translation->created_at,
+              'last_update' => $translation->updated_at,
+              'deleted' => $translation->deleted_at
+            );
+            if($translation->language_slug == $this->default_lang)
+            {
+              $list_pages[$pages->id]['title'] = $translation->title;
+            }
+            elseif(strlen($list_pages[$pages->id]['title'])==0)
+            {
+              $list_pages[$pages->id]['title'] = $translation->title;
+            }
+          }
+        }
+      }
+      else
+      {
+        foreach ($pages as $page)
+        {
+          $list_pages[$page->id] = array(
+            'created_at' => $page->created_at,
+            'last_update' => $page->updated_at,
+            'deleted' => $page->deleted_at,
+            'translations' => array(),
+            'title'=>''
+          );
+          if(isset($page->translations))
+          {
+            foreach ($page->translations as $translation)
+            {
+              $list_pages[$page->id]['translations'][$translation->language_slug] = array(
+                'translation_id' => $translation->id,
+                'title' => $translation->title,
+                'created_at' => $translation->created_at,
+                'last_update' => $translation->updated_at,
+                'deleted' => $translation->deleted_at
+              );
+              if($translation->language_slug == $this->default_lang)
+              {
+                $list_pages[$page->id]['title'] = $translation->title;
+              }
+              elseif(strlen($list_pages[$page->id]['title'])==0)
+              {
+                $list_pages[$page->id]['title'] = $translation->title;
+              }
+            }
+          }
+        }
+      }
+    }
+    $this->data['pages'] = $list_pages;
+    $this->data['next_previous_pages'] = $this->page_model->all_pages;
     $this->render('admin/pages/index_view');
   }
 
@@ -27,7 +98,7 @@ class Pages extends Admin_Controller
   {
     $language_slug = (isset($language_slug) && array_key_exists($language_slug, $this->langs)) ? $language_slug : $this->current_lang;
 
-    $this->data['content_language'] = $this->langs[$language_slug]['slug'];
+    $this->data['content_language'] = $this->langs[$language_slug]['language_directory'];
     $this->data['language_slug'] = $language_slug;
     if($page_id != 0 && $this->page_model->get($page_id)===FALSE)
     {
@@ -79,14 +150,13 @@ class Pages extends Admin_Controller
       if($translation_id = $this->page_translation_model->insert($insert_data))
       {
         $url = $this->_verify_slug($slug,$language_slug);
-        $this->slug_model->insert(array(
+        $this->slugs_model->insert(array(
           'content_type'=>'page',
           'content_id'=>$page_id,
           'translation_id'=>$translation_id,
           'language_slug'=>$language_slug,
           'url'=>$url,
           'created_by'=>$this->user_id));
-        //$this->slug_model->where(array('content_type'=>'page','content_id'=>$page_id,'id !='=>$slug_id))->update(array('redirect'=>$slug_id));
       }
 
       redirect('admin/pages','refresh');
@@ -97,8 +167,8 @@ class Pages extends Admin_Controller
   }
   private function _verify_slug($str,$language)
   {
-    $this->load->model('slug_model');
-    if($this->slug_model->where(array('url'=>$str,'language_slug'=>$language))->get() !== FALSE)
+    $this->load->model('slugs_model');
+    if($this->slugs_model->where(array('url'=>$str,'language_slug'=>$language))->get() !== FALSE)
     {
       $parts = explode('-',$str);
       if(is_numeric($parts[sizeof($parts)-1]))

@@ -23,7 +23,7 @@ class MY_Controller extends CI_Controller {
     }
     elseif(is_null($template))
     {
-      $this->load->view($the_view,$this->data);
+      $this->load->view($the_view, $this->data);
     }
     else
     {

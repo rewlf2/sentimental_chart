@@ -60,6 +60,8 @@ $route['default_controller'] = 'welcome';
 $route['misc/mail'] = 'misc/mail';
 
 
+$route['upload'] = 'welcome/upload';
+
 $route['dashboard'] = 'dashboard';
 $route['user'] = 'user';
 $route['register'] = 'register';

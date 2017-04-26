@@ -56,56 +56,66 @@ $route['translate_uri_dashes'] = FALSE;
 // $route['default_controller'] = 'dashboard';
 $route['default_controller'] = 'welcome';
 
+
 // testing
-$route['misc/mail'] = 'misc/mail';
+// $route['test/mail'] = 'test/mail';
 
 
-// avenir cms tutorial
+// admin
 $route['admin'] = 'admin/dashboard';
 
-$controllers_methods = array(
-  'de' => array(
-    'willkommen/list' => 'welcome/list',
-    'willkommen' => 'welcome'
-  ),
-  'fr' => array(
-    'bienvenu/list' => 'welcome/list',
-    'bienvenu' => 'welcome'
-  )
-);
 
-$route['^(\w{2})/(.*)'] = function($language, $link) use ($controllers_methods)
-{
-  if(array_key_exists($language,$controllers_methods))
-  {
-    foreach($controllers_methods[$language] as $key => $sym_link)
-    {
-      if(strrpos($link, $key,0) !== FALSE)
-      {
-        $new_link = ltrim($link,$key);
-        $new_link = $sym_link.$new_link;
-        break;
-      }
-    }
-    return $new_link;
-  }
-  return $link;
-};
+
+
+// testing routes
+
+// $route['dashboard'] = 'dashboard';
+// $route['user'] = 'user';
+// $route['register'] = 'register';
+
+// $route['news/create'] = 'news/create';
+// $route['news/(:any)'] = 'news/view/$1';
+// $route['news'] = 'news';
+
+// $route['upload'] = 'welcome/upload';
+
+// $route['(:any)'] = 'pages/view/$1';
+
+
+
+
+
+// multi languages
 
 $route['^(\w{2})$'] = $route['default_controller'];
 
+// if want to show different languages in the url, use the following
+// $controllers_methods = array(
+//   'de' => array(
+//     'willkommen/list' => 'welcome/list',
+//     'willkommen' => 'welcome'
+//   ),
+//   'fr' => array(
+//     'bienvenu/list' => 'welcome/list',
+//     'bienvenu' => 'welcome'
+//   )
+// );
+//
+// $route['^(\w{2})/(.*)'] = function($language, $link) use ($controllers_methods)
+// {
+//   if(array_key_exists($language,$controllers_methods))
+//   {
+//     foreach($controllers_methods[$language] as $key => $sym_link)
+//     {
+//       if(strrpos($link, $key,0) !== FALSE)
+//       {
+//         $new_link = ltrim($link,$key);
+//         $new_link = $sym_link.$new_link;
+//         break;
+//       }
+//     }
+//     return $new_link;
+//   }
+//   return $link;
+// };
 
-$route['upload'] = 'welcome/upload';
-
-$route['dashboard'] = 'dashboard';
-$route['user'] = 'user';
-$route['register'] = 'register';
-
-$route['news/create'] = 'news/create';
-$route['news/(:any)'] = 'news/view/$1';
-$route['news'] = 'news';
-
-// ion auth basic
-$route['auth'] = 'auth';
-
-$route['(:any)'] = 'pages/view/$1';

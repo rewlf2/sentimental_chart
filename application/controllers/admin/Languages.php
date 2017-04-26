@@ -5,6 +5,12 @@ class Languages extends Admin_Controller
   function __construct()
   {
     parent::__construct();
+    if(!$this->ion_auth->in_group('admin'))
+    {
+      $this->session->set_flashdata('message','You are not allowed to visit the Groups page');
+      redirect('admin','refresh');
+    }
+
     $this->load->library('form_validation');
     $this->load->model('language_model');
   }

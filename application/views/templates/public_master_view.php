@@ -1,4 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
+
 $this->load->view('templates/_parts/public_master_header_view'); ?>
-<?php echo $the_view_content;?>
+    <div class="container">
+        <div class="main-content" style="padding-top:40px;">
+            <?php echo $the_view_content; ?>
+        </div>
+    </div>
 <?php $this->load->view('templates/_parts/public_master_footer_view');?>

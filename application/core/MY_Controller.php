@@ -74,7 +74,9 @@ class MY_Controller extends CI_Controller
 
         // Load libraries and css for view
         $this->load->helper('load_helper');
-        Load_helper::load_default_libraries();
+        if(!$this->input->is_ajax_request()){
+            Load_helper::load_libraries('default');
+        }
     }
 
     protected function render($the_view = NULL, $template = 'master')
@@ -110,15 +112,15 @@ class Auth_Controller extends MY_Controller
         $this->data['current_user_menu'] = '';
 
         if ($this->ion_auth->in_group('admin') || $this->ion_auth->in_group('member')) {
-            $this->data['current_user_menu'] = $this->load->view('templates/_parts/user_menu_auth_view.php', NULL, TRUE);
+            $this->data['current_user_menu'] = $this->load->view('templates/_parts/user_menu/auth_view.php', NULL, TRUE);
         }
 
         if ($this->ion_auth->in_group('admin')) {
-            $this->data['current_user_menu'] = $this->load->view('templates/_parts/user_menu_admin_view.php', NULL, TRUE) . $this->data['current_user_menu'];
+            $this->data['current_user_menu'] = $this->load->view('templates/_parts/user_menu/admin_view.php', NULL, TRUE) . $this->data['current_user_menu'];
         }
 
         if ($this->ion_auth->in_group('member')) {
-            $this->data['current_user_menu'] = $this->load->view('templates/_parts/user_menu_member_view.php', NULL, TRUE) . $this->data['current_user_menu'];
+            $this->data['current_user_menu'] = $this->load->view('templates/_parts/user_menu/member_view.php', NULL, TRUE) . $this->data['current_user_menu'];
         }
 
         $this->data['page_title'] = 'CI App - Dashboard';

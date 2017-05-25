@@ -521,3 +521,27 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+
+$config["libraries"] = [
+    'highcharts' => '<script src="https://cdnjs.cloudflare.com/ajax/libs/highcharts/5.0.10/highcharts.js" integrity="sha256-QXl+BEJDfotiSrbE8cZJvM3ogQvRwWaaDDkk8MYemPY=" crossorigin="anonymous"></script>',
+    'jquery' => '<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>',
+    'bootstrap' => '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">',
+
+    'moment' => '<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/moment.min.js" integrity="sha256-TkEcmf5KSG2zToAaUzkq6G+GWezMQ4lEtaBiyaq6Jb4=" crossorigin="anonymous"></script>',
+    'daterangepicker' => '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.css" integrity="sha256-RqJuUJ19HEfsKUNMC+6GLSatrHeroWygib75lro4BMU=" crossorigin="anonymous" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-daterangepicker/2.1.25/daterangepicker.min.js" integrity="sha256-WniDtKHyk2OPgNtTFKu/sL8zGBzmCfMcmEKRAqfi25c=" crossorigin="anonymous"></script>',
+
+    'baguetteBox' => '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css" integrity="sha384-6FQ6OFPrf2AOjgiXGui+QNSaNlLEWEtWtQyedBVzVAK5B6VgZmvC5iOzchvV8drJ" crossorigin="anonymous">',
+    'font_awesome' => '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />',
+   'slickCarousel' => '<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css" integrity="sha384-15uvY5+i2S8TYxd43U+tQKe816etfaw5Nuo/UuLmQutVtunPEPslyk47/prxTXI6" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css" integrity="sha384-3wRRg17hVCopINZVYCqnfbgXE7aFPSvawmLWNPSiUPVx+HxY+yxb5Cwp5mT7RXPD" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js" integrity="sha384-ZULtytbCZdmL8PeKalcAKnseGOqrCiPBi3DiB7s4JJmS8gjSbfw0w8SPKpt9WemG" crossorigin="anonymous"></script>'
+
+];
+
+$config["library_presets"] = [
+    "default" =>['jquery', 'bootstrap', ['css', 'global']],
+];

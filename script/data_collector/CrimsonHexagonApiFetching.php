@@ -1,13 +1,15 @@
 <?php
 
 class CrimsonHexagonApiFetching{
-    protected $id, $mysqli;
+    protected $id, $mysqli, 
+        $now;
     
     function __construct($id, mysqli $mysqli){
         if($id < 0) throw new RuntimeException("id should not be negative: $id");
 
         $this->id = $id;
         $this->mysqli = $mysqli;
+        $this->now = new Datetime(null, new DatetimeZone("utc"));
     }
 
     function fetchSentiment(Datetime $start = null, Datetime $end = null){
@@ -30,9 +32,11 @@ class CrimsonHexagonApiFetching{
         foreach($api_result["results"] as $result){
             $sentiment_data = [
                 "monitor_id" => $this->id,
+                
+                "creation_date" => (new Datetime($result["creationDate"]))->format("Y-m-d H:i:s"),
 
                 "date" => (new Datetime($result["startDate"]))->format("Y-m-d H:i:s"),
-                "hour" => (new Datetime($result["creationDate"]))->format("H"),
+                "hour" => $this->now->format("H"),
                 
                 "number_of_documents" => $result["numberOfDocuments"],
                 "number_of_relevant_documents" => $result["numberOfRelevantDocuments"],
@@ -109,8 +113,6 @@ class CrimsonHexagonApiFetching{
         if(!isset($api_result["volumes"]))
             throw new RuntimeException("Api result missing volumes key: " . json_encode($api_result));
 
-        $now = new Datetime(null, new DatetimeZone("utc"));
-
         foreach($api_result["volumes"] as $volume){
             $volume_data = [
                 "monitor_id" => $this->id,
@@ -120,8 +122,8 @@ class CrimsonHexagonApiFetching{
 
             foreach($volume["volume"] as $hour => $volume_value){
                 // only getting data that is before now()
-                if($volume_data["date"] === $now->format("Y-m-d")
-                  && $hour >= (int)$now->format("H")) 
+                if($volume_data["date"] === $this->now->format("Y-m-d")
+                  && $hour >= (int)$this->now->format("H")) 
                     continue;
 
                 // copy the data that will not changes on each hour

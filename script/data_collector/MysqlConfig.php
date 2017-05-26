@@ -3,7 +3,7 @@
 interface MysqlConfig{
     const HOST = null,
         USER = "root",
-        PASSWORD = "1234",
+        PASSWORD = "root",
         DB = "beacon",
         CHARSET = "utf8mb4",
 

@@ -391,16 +391,28 @@ class CrimsonHexagonApiFetching
         $apiContent = file_get_contents($url);
 
         $apiResult = json_decode($apiContent, true);
+
         if(json_last_error())
+        {
             throw new RuntimeException("error while decoding api result: " . json_last_error_msg());
+        }
         elseif(!$apiResult)
+        {
             throw new RuntimeException("api result is empty");
+        }
         elseif(!isset($apiResult["status"]))
+        {
             throw new RuntimeException("unable to check status field for api result " . json_encode($apiResult));
+        }
         elseif($apiResult["status"] !== "success")
+        {
            throw new RuntimeException("api result status is not success: {$apiResult["status"]}");
+        }
         else
+        {
             return $apiResult;
+        }
+        
     }
 
 }

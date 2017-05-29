@@ -17,7 +17,7 @@ $mysqli->set_charset(MysqlConfig::CHARSET);
 $ids = [6151023456];
 
 // get all monitor ids for fetching
-$query = "SELECT id FROM ch_monitors";
+$query = "SELECT id FROM ch_monitor";
 // $result = $mysqli->query($query);
 // while($row = $result->fetch_array())
 // {

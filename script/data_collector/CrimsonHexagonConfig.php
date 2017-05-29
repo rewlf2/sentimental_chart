@@ -1,4 +1,7 @@
 <?php
+/**
+ * Api config for api fetching
+ */
 interface CrimsonHexagonConfig
 {
     const API_URL = "https://api.crimsonhexagon.com/api/",

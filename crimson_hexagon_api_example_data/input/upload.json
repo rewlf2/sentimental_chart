@@ -1,0 +1,43 @@
+{
+  "items": [
+    {
+      "title": "Example Title",
+      "date": "2010-01-26T16:14:00",
+      "author": "me",
+      "url": "http://www.crimsonhexagon.com/post1",
+      "contents": "Example content",
+      "language": "en",
+      "type": "Your_Assigned_Content_Type_Name",
+      "geolocation": {
+        "id": "USA.NY"
+      }
+    },
+    {
+      "title": "ExampleTitle2",
+      "date": "2010-01-26T16:14:01",
+      "author": "me",
+      "gender": "M",
+      "url": "http://www.crimsonhexagon.com/post2",
+      "contents": "Examplecontent2",
+      "language": "en",
+      "type": "Your_Assigned_Content_Type_Name",
+      "geolocation": {
+        "zipcode": "02210"
+      }
+    },
+    {
+      "title": "ExampleTitle3",
+      "date": "2010-01-26T16:14:05",
+      "author": "me",
+      "age": 33,
+      "url": "http://www.crimsonhexagon.com/post3",
+      "contents": "Examplecontent2",
+      "language": "en",
+      "type": "Your_Assigned_Content_Type_Name",
+      "geolocation": {
+        "latitude": 42.3504621,
+        "longitude": -71.0533528
+      }
+    }
+  ]
+}

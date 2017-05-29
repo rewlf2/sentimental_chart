@@ -1,0 +1,63 @@
+// 24 is hour, 365 is day 
+// middle number is endpoints count 
+// each endpoint has different numbers of rows of data, so one endpoint can have multiple rows of data pre hour call
+24 * 3 * 365 +  // results(sentiment), wordcloud 
+24 * 1 * 365 * 24 + // dayandtime(volume)
+24 * 1 * 365 * 10 + // author
+24 * 1 * 365 * 97 +  // interestaffinities
+24 * 1 * 365 * (10 + 10) +  // twittermetrics
+24 * 1 * 365 * (48 + 7) +  // sources
+24 * 1 * 365 * 488 // posts
+
+
+around 1620600 (1.62 mil) row of data per year (seems to be ok)
+not include posts endpoint because posts data is large
+
+table counts (each number mean each category)
+1 + (for storing monitor)
+1 + 1 + 3 + 2 + 1 + 2 + 3
+
+tables for storing monitors ids
+pk int: id 
+string: name 
+now(): inserted_date 
+
+//table sentiment
+https://api.crimsonhexagon.com/api/monitor/results?auth=tokenhere&id=123456789&start=2010-01-01&end=2020-01-01
+
+//table volume
+https://api.crimsonhexagon.com/api/monitor/dayandtime?auth=tokenhere&id=123456789&start=2010-01-01&end=2020-01-01&aggregatebyday=false&uselocaltime=false
+
+// three table, top_sites, sources
+// parent store monitor_id and date
+// child id point to parent
+https://api.crimsonhexagon.com/api/monitor/sources?auth=tokenhere&id=123456789&start=2010-01-01&end=2020-01-01
+
+//this endpoint is using interestaffinities_daily.json
+// two table, store monitor_id + date + affinity_info
+// child id point to parent
+https://api.crimsonhexagon.com/api/monitor/interestaffinities?auth=tokenhere&id=123456789&start=2010-01-01&end=2020-01-01&daily=true
+
+// single table, date + text + number -> group by date, hour
+// (basically similar to volume)
+https://api.crimsonhexagon.com/api/monitor/wordcloud?auth=tokenHere&id=3735007902&start=2016-01-01&end=2016-07-01&filter=filter=site:blogspot.com,wordpress.com%7Ckeywords:android%7Cgeolocation:USA.NY.New%20York;GBR.Greater%20London.London
+
+
+twitter
+// two table, author_details
+// parent id, date, 
+// child , id point to parent
+https://api.crimsonhexagon.com/api/monitor/authors?auth=tokenhere&id=3735007902&start=2016-01-01&end=2016-07-01
+
+// three table, need two relation table. top_hashtags, top_retweets
+// parent id + date
+// child id point to parent 
+https://api.crimsonhexagon.com/api/monitor/twittermetrics?auth=tokenhere&id=123456789&start=2010-01-01&end=2020-01-01
+
+
+// input???
+https://api.crimsonhexagon.com/api/monitor/train
+https://api.crimsonhexagon.com/api/content/upload
+
+
+post endpoint too huge, TODO after done above

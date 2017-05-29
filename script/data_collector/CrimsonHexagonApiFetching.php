@@ -50,6 +50,7 @@ class CrimsonHexagonApiFetching
      */
     public function fetchAll(Datetime $start = null, Datetime $end = null)
     {
+        // TODO
         // $this->fetchAuthors($start, $end);
         // $this->fetchInterestaffinities($start, $end);
         $this->fetchSentiment($start, $end);
@@ -197,13 +198,50 @@ class CrimsonHexagonApiFetching
      */
     function fetchSources(Datetime $start = null, Datetime $end = null)
     {
-        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sentiment"], $start, $end);
+        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sources"], $start, $end);
 
-        $url = $this->createEndpointUrl(CrimsonHexagonConfig::volume_endpoint, 
+        $url = $this->createEndpointUrl(CrimsonHexagonConfig::endpoints["sources"], 
             $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
         $apiResult = $this->getApiResult($url);
-        $this->checkApiResultKey($apiResult, "null");
+        $this->checkApiResultKey($apiResult, "contentSources");
 
+        // TODO
+        throw new RuntimeException("TODO");
+
+        foreach($apiResult["contentSources"] as $contentSource)
+        {
+            $source = [
+                "monitor_id" => $this->monitorId,
+                "date" => (new Datetime($contentSource["startDate"])),
+                "hour" => $this->now->format("H")
+            ];
+
+            // TODO each parent query
+            foreach($contentSource["topSites"] as $site => $score)
+            {
+                $eachSource = [
+                    "id" => null,
+
+                    "site" => $site,
+                    "score" => $score
+                ];
+                // TODO each child
+                // TODO handle child element, insert parent element then insert child, use parent id as reference.
+                $query = "INSERT INTO xxx() VALUES();" .
+                    "SELECT last_insert_id() as id;";
+            }
+
+            foreach($contentSource["sources"] as $sourceName => $score)
+            {
+                $scoresData = [
+                    "id" => null,
+
+                    "source_name" => $sourceName,
+                    "score" => $score
+                ];
+                // TODO child
+            }
+        }
     }
 
     /**
@@ -215,13 +253,44 @@ class CrimsonHexagonApiFetching
      */
     function fetchInterestaffinities(Datetime $start = null, Datetime $end = null)
     {
-        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sentiment"], $start, $end);
+        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["interestaffinities"], $start, $end);
         
-                $url = $this->createEndpointUrl(CrimsonHexagonConfig::volume_endpoint, 
+        $url = $this->createEndpointUrl(CrimsonHexagonConfig::endpoints["interestaffinities"], 
             $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
         $apiResult = $this->getApiResult($url);
-        $this->checkApiResultKey($apiResult, "null");
+        $this->checkApiResultKey($apiResult, "dailyResults");
 
+        // TODO
+        throw new RuntimeException("TODO");
+
+        foreach($apiResult["dailyResults"] as $dailyResult)
+        {
+            // parent
+            $result = [
+                "monitor_id" => $this->monitorId,
+                "date" => (new Datetime($contentSource["startDate"])),
+                "hour" => $this->now->format("H")
+            ];
+
+            // TODO parent insert query            
+            foreach($dailyResult["info"] as $info)
+            {
+                $info_result = $result + [
+                    "id_" => null,
+                    
+                    "id" => $info["id"],
+                    "name" => $info["name"],
+                    "relevancy_score" => $info["relevancyScore"],
+                    "percent_in_monitor" => $info["percentInMonitor"],
+                    "percent_on_twitter" => $info["percentOnTwitter"]
+                ];
+                //child
+
+                // TODO handle child element, insert parent element then insert child, use parent id as reference.
+                $query = "INSERT INTO xxx() VALUES();" .
+                    "SELECT last_insert_id() as id;";
+            }
+        }
     }
 
     /**
@@ -234,11 +303,23 @@ class CrimsonHexagonApiFetching
     function fetchWordcloud(Datetime $start = null, Datetime $end = null){
         list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sentiment"], $start, $end);
 
-        $url = $this->createEndpointUrl(CrimsonHexagonConfig::volume_endpoint, 
+        $url = $this->createEndpointUrl(CrimsonHexagonConfig::endpoints["interestaffinities"],
             $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
         $apiResult = $this->getApiResult($url);
-        $this->checkApiResultKey($apiResult, "null");
+        $this->checkApiResultKey($apiResult, "data");
         
+        foreach($apiResult["data"] as $hashTag => $score)
+        {
+            $wordCloud = [
+                "monitor_id" => $this->monitorId,
+                "date" => (new Datetime($contentSource["startDate"])),
+                "hour" => $this->now->format("H"),
+
+                "hash_tag" => $hashTag,
+                "score" => $score
+            ];
+            //TODO insert data
+        }
     }
     
     /**
@@ -255,8 +336,27 @@ class CrimsonHexagonApiFetching
         $url = $this->createEndpointUrl(CrimsonHexagonConfig::volume_endpoint, 
             $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
         $apiResult = $this->getApiResult($url);
-        $this->checkApiResultKey($apiResult, "null");
-        
+        $this->checkApiResultKey($apiResult, "authors");
+
+        foreach($apiResult["authors"] as $author)
+        {
+            $authorData = [
+                "monitor_id" => $this->monitorId,
+                "date" => (new Datetime($contentSource["startDate"])),
+                "hour" => $this->now->format("H"),                
+            ];
+
+            // TODO parent
+            foreach($author["authorDetails"] as $authorDetail)
+            {
+                $authorDetailData = [
+                    "id" => null,
+                    "kloutScore" => $authorDetail["kloutScore"],
+                    "detailsDate" => $authorDetail["detailsDate"]
+                ];
+                // TODO insert child
+            }
+        }
     }
 
     /**
@@ -273,7 +373,40 @@ class CrimsonHexagonApiFetching
         $url = $this->createEndpointUrl(CrimsonHexagonConfig::volume_endpoint, 
             $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
         $apiResult = $this->getApiResult($url);
-        $this->checkApiResultKey($apiResult, "null");
+        $this->checkApiResultKey($apiResult, "dailyResults");
+
+        foreach($apiResult["dailyResults"] as $dailyResult)
+        {
+            $resultData = [
+                "monitor_id" => $this->monitorId,
+                "date" => (new Datetime($contentSource["startDate"])),
+                "hour" => $this->now->format("H"),              
+            ];
+
+            // TODO parent
+            foreach($dailyResult["topHashtags"] as $hashTag => $score)
+            {
+                $topHashTagData = [
+                    "id" => null,
+
+                    "hash_tag" => $hashTag,
+                    "score" => $score
+                ];
+                //TODO child
+            }
+
+            foreach($dailyResult["topRetweets"] as $topRetweet)
+            {
+                $topRetweetData = [
+                    "id" => null,
+                    
+                    "url" => $topRetweet["url"],
+                    "is_original" => $topRetweet["isOriginal"],
+                    "retweet_count" => $topRetweet["retweetCount"],
+                ];
+                // TODO child 
+            }
+        }
     }
 
     /**
@@ -412,7 +545,7 @@ class CrimsonHexagonApiFetching
         {
             return $apiResult;
         }
-        
+
     }
 
 }

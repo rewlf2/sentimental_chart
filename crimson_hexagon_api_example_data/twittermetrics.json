@@ -1,0 +1,73 @@
+{
+  "dailyResults": [
+    {
+      "startDate": "2017-05-28T00:00:00",
+      "endDate": "2017-05-29T00:00:00",
+      "topHashtags": {
+        "#mPLUSPlaces": 241,
+        "#FATBOYGANG": 35,
+        "#BadBusinessSlogans": 18,
+        "#SuperBowlprostitution": 11,
+        "#SubYAY": 8,
+        "#NASCAR": 7,
+        "#CocaCola600": 7,
+        "#HangoutFest": 4,
+        "#subway": 4,
+        "#236": 3
+      },
+      "topRetweets": [
+        {
+          "url": "http://twitter.com/WestFromHaiti/status/868696887255326720",
+          "isOriginal": true,
+          "retweetCount": 39
+        },
+        {
+          "url": "http://twitter.com/Fatboy_sse/status/822955855402467328",
+          "isOriginal": true,
+          "retweetCount": 35
+        },
+        {
+          "url": "http://twitter.com/yeahnothnx/status/868253344665657344",
+          "isOriginal": true,
+          "retweetCount": 25
+        },
+        {
+          "url": "http://twitter.com/lilbeezy601/status/868537318331867137",
+          "isOriginal": true,
+          "retweetCount": 23
+        },
+        {
+          "url": "http://twitter.com/thekidnaee/status/868676180219703297",
+          "isOriginal": true,
+          "retweetCount": 14
+        },
+        {
+          "url": "http://twitter.com/joeljeffrey/status/868851634616492034",
+          "isOriginal": true,
+          "retweetCount": 12
+        },
+        {
+          "url": "http://twitter.com/AskCharlesA/status/868849349685428227",
+          "isOriginal": true,
+          "retweetCount": 11
+        },
+        {
+          "url": "http://twitter.com/xoShaaan/status/868627427534061569",
+          "isOriginal": true,
+          "retweetCount": 8
+        },
+        {
+          "url": "http://twitter.com/SUBWAY/status/867002174940692480",
+          "isOriginal": true,
+          "retweetCount": 7
+        },
+        {
+          "url": "http://twitter.com/SUBWAY/status/868829234873094147",
+          "isOriginal": true,
+          "retweetCount": 6
+        }
+      ]
+    }
+  ],
+  "status": "success"
+}

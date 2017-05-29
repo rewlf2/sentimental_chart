@@ -1,0 +1,13 @@
+
+{
+  "monitorid": 123456789,
+  "categoryid": 6779843,
+  "document": {
+    "title": "My day at the fair",
+    "date": "2010-04-19T23:14:00",
+    "author": "me",
+    "url": "http://www.blog.com/2010/04/19/my-day-at-the-fair",
+    "contents": "Today I went to the fair and...",
+    "language": "en"
+  }
+}

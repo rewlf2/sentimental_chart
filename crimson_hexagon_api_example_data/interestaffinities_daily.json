@@ -1,0 +1,2808 @@
+{
+  "dailyResults": [
+    {
+      "startDate": "2017-05-25T00:00:00",
+      "endDate": "2017-05-26T00:00:00",
+      "info": [
+        {
+          "id": 4142,
+          "name": "High School",
+          "relevancyScore": 11.2,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.005
+        },
+        {
+          "id": 531,
+          "name": "Nfl",
+          "relevancyScore": 11.1,
+          "percentInMonitor": 9.479,
+          "percentOnTwitter": 2.949
+        },
+        {
+          "id": 5145,
+          "name": "New York Jets",
+          "relevancyScore": 8.5,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 0.01
+        },
+        {
+          "id": 2671,
+          "name": "Celebrity",
+          "relevancyScore": 8.3,
+          "percentInMonitor": 2.133,
+          "percentOnTwitter": 0.043
+        },
+        {
+          "id": 449,
+          "name": "Real Housewives",
+          "relevancyScore": 8.1,
+          "percentInMonitor": 2.844,
+          "percentOnTwitter": 0.162
+        },
+        {
+          "id": 1128,
+          "name": "Blogging",
+          "relevancyScore": 7.7,
+          "percentInMonitor": 2.133,
+          "percentOnTwitter": 0.058
+        },
+        {
+          "id": 472,
+          "name": "Baseball",
+          "relevancyScore": 7.2,
+          "percentInMonitor": 11.137,
+          "percentOnTwitter": 5.861
+        },
+        {
+          "id": 1343,
+          "name": "Nascar",
+          "relevancyScore": 7.1,
+          "percentInMonitor": 2.607,
+          "percentOnTwitter": 0.172
+        },
+        {
+          "id": 3711,
+          "name": "Indianapolis 500",
+          "relevancyScore": 6.8,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.012
+        },
+        {
+          "id": 668,
+          "name": "Affordable Care Act",
+          "relevancyScore": 6.3,
+          "percentInMonitor": 2.844,
+          "percentOnTwitter": 0.306
+        },
+        {
+          "id": 924,
+          "name": "Walmart",
+          "relevancyScore": 6.3,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.067
+        },
+        {
+          "id": 3155,
+          "name": "Home Improvement",
+          "relevancyScore": 6.2,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.018
+        },
+        {
+          "id": 782,
+          "name": "R&B",
+          "relevancyScore": 6.1,
+          "percentInMonitor": 4.976,
+          "percentOnTwitter": 1.46
+        },
+        {
+          "id": 87,
+          "name": "Florida",
+          "relevancyScore": 5.5,
+          "percentInMonitor": 3.555,
+          "percentOnTwitter": 0.747
+        },
+        {
+          "id": 4790,
+          "name": "Georgia State University",
+          "relevancyScore": 5.2,
+          "percentInMonitor": 1.185,
+          "percentOnTwitter": 0.015
+        },
+        {
+          "id": 3618,
+          "name": "California",
+          "relevancyScore": 5.1,
+          "percentInMonitor": 2.607,
+          "percentOnTwitter": 0.366
+        },
+        {
+          "id": 3149,
+          "name": "Coupons",
+          "relevancyScore": 5,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 0.081
+        },
+        {
+          "id": 3730,
+          "name": "Politico",
+          "relevancyScore": 4.5,
+          "percentInMonitor": 2.133,
+          "percentOnTwitter": 0.255
+        },
+        {
+          "id": 1344,
+          "name": "Louis Ck",
+          "relevancyScore": 4.4,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.185
+        },
+        {
+          "id": 3099,
+          "name": "Nola",
+          "relevancyScore": 4.4,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 0.12
+        },
+        {
+          "id": 201,
+          "name": "Los Angeles",
+          "relevancyScore": 4.1,
+          "percentInMonitor": 2.37,
+          "percentOnTwitter": 0.416
+        },
+        {
+          "id": 3384,
+          "name": "Msnbc",
+          "relevancyScore": 4,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.083
+        },
+        {
+          "id": 570,
+          "name": "New York City",
+          "relevancyScore": 4,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.085
+        },
+        {
+          "id": 185,
+          "name": "Amazon",
+          "relevancyScore": 4,
+          "percentInMonitor": 2.607,
+          "percentOnTwitter": 0.568
+        },
+        {
+          "id": 543,
+          "name": "Nbc",
+          "relevancyScore": 3.9,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.247
+        },
+        {
+          "id": 538,
+          "name": "Texas",
+          "relevancyScore": 3.6,
+          "percentInMonitor": 3.081,
+          "percentOnTwitter": 0.949
+        },
+        {
+          "id": 1402,
+          "name": "Real Estate",
+          "relevancyScore": 3.6,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.112
+        },
+        {
+          "id": 486,
+          "name": "Hockey",
+          "relevancyScore": 3.4,
+          "percentInMonitor": 4.265,
+          "percentOnTwitter": 1.936
+        },
+        {
+          "id": 702,
+          "name": "Fantasy Football",
+          "relevancyScore": 3.2,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.354
+        },
+        {
+          "id": 375,
+          "name": "Nutrition",
+          "relevancyScore": 3.1,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.373
+        },
+        {
+          "id": 801,
+          "name": "New Orleans",
+          "relevancyScore": 3,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.169
+        },
+        {
+          "id": 231,
+          "name": "Chicago",
+          "relevancyScore": 3,
+          "percentInMonitor": 3.081,
+          "percentOnTwitter": 1.161
+        },
+        {
+          "id": 152,
+          "name": "Espn",
+          "relevancyScore": 3,
+          "percentInMonitor": 9.005,
+          "percentOnTwitter": 6.47
+        },
+        {
+          "id": 1226,
+          "name": "Bears",
+          "relevancyScore": 2.9,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.181
+        },
+        {
+          "id": 328,
+          "name": "Deals",
+          "relevancyScore": 2.6,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.471
+        },
+        {
+          "id": 295,
+          "name": "Country Music",
+          "relevancyScore": 2.6,
+          "percentInMonitor": 2.607,
+          "percentOnTwitter": 0.957
+        },
+        {
+          "id": 146,
+          "name": "Seattle",
+          "relevancyScore": 2.6,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.233
+        },
+        {
+          "id": 1423,
+          "name": "Pirates",
+          "relevancyScore": 2.5,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.239
+        },
+        {
+          "id": 1334,
+          "name": "Baltimore",
+          "relevancyScore": 2.5,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.243
+        },
+        {
+          "id": 596,
+          "name": "Actors",
+          "relevancyScore": 2.5,
+          "percentInMonitor": 4.739,
+          "percentOnTwitter": 2.814
+        },
+        {
+          "id": 117,
+          "name": "American Idol",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.255
+        },
+        {
+          "id": 593,
+          "name": "College Football",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 0.382
+        },
+        {
+          "id": 904,
+          "name": "Entrepreneurship",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.527
+        },
+        {
+          "id": 956,
+          "name": "Las Vegas",
+          "relevancyScore": 2.1,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.639
+        },
+        {
+          "id": 329,
+          "name": "Advertising",
+          "relevancyScore": 2,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.668
+        },
+        {
+          "id": 617,
+          "name": "Management",
+          "relevancyScore": 1.9,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.704
+        },
+        {
+          "id": 1050,
+          "name": "Volleyball",
+          "relevancyScore": 1.8,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.72
+        },
+        {
+          "id": 220,
+          "name": "Writing",
+          "relevancyScore": 1.8,
+          "percentInMonitor": 2.844,
+          "percentOnTwitter": 1.526
+        },
+        {
+          "id": 362,
+          "name": "Lgbt",
+          "relevancyScore": 1.7,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.425
+        },
+        {
+          "id": 659,
+          "name": "Cats",
+          "relevancyScore": 1.6,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 0.804
+        },
+        {
+          "id": 1157,
+          "name": "Wine",
+          "relevancyScore": 1.4,
+          "percentInMonitor": 1.185,
+          "percentOnTwitter": 0.367
+        },
+        {
+          "id": 90,
+          "name": "Soulja Boy",
+          "relevancyScore": 1.4,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.548
+        },
+        {
+          "id": 270,
+          "name": "Fitness",
+          "relevancyScore": 1.3,
+          "percentInMonitor": 5.213,
+          "percentOnTwitter": 4.041
+        },
+        {
+          "id": 1097,
+          "name": "Houston",
+          "relevancyScore": 1.3,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 0.57
+        },
+        {
+          "id": 1395,
+          "name": "Boston",
+          "relevancyScore": 1.2,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 0.786
+        },
+        {
+          "id": 477,
+          "name": "Running",
+          "relevancyScore": 1.2,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 1.016
+        },
+        {
+          "id": 1427,
+          "name": "Nhl",
+          "relevancyScore": 1.2,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 0.819
+        },
+        {
+          "id": 299,
+          "name": "Starbucks",
+          "relevancyScore": 1.1,
+          "percentInMonitor": 2.133,
+          "percentOnTwitter": 1.249
+        },
+        {
+          "id": 4210,
+          "name": "Supernatural",
+          "relevancyScore": 1.1,
+          "percentInMonitor": 1.185,
+          "percentOnTwitter": 0.454
+        },
+        {
+          "id": 1087,
+          "name": "Basketball",
+          "relevancyScore": 1,
+          "percentInMonitor": 17.773,
+          "percentOnTwitter": 16.791
+        },
+        {
+          "id": 626,
+          "name": "Law",
+          "relevancyScore": 0.8,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 0.997
+        },
+        {
+          "id": 383,
+          "name": "Make Up",
+          "relevancyScore": 0.8,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 1.035
+        },
+        {
+          "id": 707,
+          "name": "Atlanta",
+          "relevancyScore": 0.8,
+          "percentInMonitor": 1.185,
+          "percentOnTwitter": 0.614
+        },
+        {
+          "id": 111,
+          "name": "Reporter",
+          "relevancyScore": 0.7,
+          "percentInMonitor": 1.185,
+          "percentOnTwitter": 0.644
+        },
+        {
+          "id": 788,
+          "name": "Sneakers",
+          "relevancyScore": 0.7,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 1.336
+        },
+        {
+          "id": 28,
+          "name": "Sportscenter",
+          "relevancyScore": 0.6,
+          "percentInMonitor": 4.028,
+          "percentOnTwitter": 3.512
+        },
+        {
+          "id": 905,
+          "name": "Paparazzi",
+          "relevancyScore": 0.5,
+          "percentInMonitor": 2.844,
+          "percentOnTwitter": 2.36
+        },
+        {
+          "id": 115,
+          "name": "Health",
+          "relevancyScore": 0.4,
+          "percentInMonitor": 8.531,
+          "percentOnTwitter": 8.121
+        },
+        {
+          "id": 423,
+          "name": "Activism",
+          "relevancyScore": 0.4,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 1.094
+        },
+        {
+          "id": 915,
+          "name": "Ncaa",
+          "relevancyScore": 0.3,
+          "percentInMonitor": 2.607,
+          "percentOnTwitter": 2.286
+        },
+        {
+          "id": 326,
+          "name": "Miley Cyrus",
+          "relevancyScore": 0.2,
+          "percentInMonitor": 3.791,
+          "percentOnTwitter": 3.592
+        },
+        {
+          "id": 1147,
+          "name": "Canada",
+          "relevancyScore": 0,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 1.399
+        },
+        {
+          "id": 322,
+          "name": "Entertainment News",
+          "relevancyScore": 0,
+          "percentInMonitor": 2.607,
+          "percentOnTwitter": 2.622
+        },
+        {
+          "id": 1383,
+          "name": "Math",
+          "relevancyScore": -0.1,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 1.481
+        },
+        {
+          "id": 972,
+          "name": "Rihanna",
+          "relevancyScore": -0.1,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 1.718
+        },
+        {
+          "id": 544,
+          "name": "Nba",
+          "relevancyScore": -0.1,
+          "percentInMonitor": 4.739,
+          "percentOnTwitter": 4.814
+        },
+        {
+          "id": 534,
+          "name": "World News",
+          "relevancyScore": -0.1,
+          "percentInMonitor": 3.791,
+          "percentOnTwitter": 3.942
+        },
+        {
+          "id": 3645,
+          "name": "Beyonce",
+          "relevancyScore": -0.3,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 1.714
+        },
+        {
+          "id": 3274,
+          "name": "Finance",
+          "relevancyScore": -0.3,
+          "percentInMonitor": 2.37,
+          "percentOnTwitter": 2.71
+        },
+        {
+          "id": 501,
+          "name": "Shoes",
+          "relevancyScore": -0.5,
+          "percentInMonitor": 2.607,
+          "percentOnTwitter": 3.139
+        },
+        {
+          "id": 373,
+          "name": "Health Care",
+          "relevancyScore": -0.6,
+          "percentInMonitor": 2.133,
+          "percentOnTwitter": 2.884
+        },
+        {
+          "id": 236,
+          "name": "Software Development",
+          "relevancyScore": -0.7,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 2.488
+        },
+        {
+          "id": 248,
+          "name": "Animals",
+          "relevancyScore": -0.7,
+          "percentInMonitor": 1.896,
+          "percentOnTwitter": 2.725
+        },
+        {
+          "id": 909,
+          "name": "Chelsea",
+          "relevancyScore": -1,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 2.951
+        },
+        {
+          "id": 650,
+          "name": "Cars",
+          "relevancyScore": -1.1,
+          "percentInMonitor": 2.844,
+          "percentOnTwitter": 4.16
+        },
+        {
+          "id": 3859,
+          "name": "Beauty",
+          "relevancyScore": -1.3,
+          "percentInMonitor": 2.133,
+          "percentOnTwitter": 3.853
+        },
+        {
+          "id": 657,
+          "name": "News And Media",
+          "relevancyScore": -1.4,
+          "percentInMonitor": 4.265,
+          "percentOnTwitter": 5.968
+        },
+        {
+          "id": 560,
+          "name": "Disney",
+          "relevancyScore": -1.5,
+          "percentInMonitor": 1.422,
+          "percentOnTwitter": 4.084
+        },
+        {
+          "id": 1364,
+          "name": "College",
+          "relevancyScore": -1.8,
+          "percentInMonitor": 4.028,
+          "percentOnTwitter": 6.296
+        },
+        {
+          "id": 320,
+          "name": "Hip Hop",
+          "relevancyScore": -2,
+          "percentInMonitor": 5.213,
+          "percentOnTwitter": 7.599
+        },
+        {
+          "id": 1176,
+          "name": "Astrology",
+          "relevancyScore": -2.5,
+          "percentInMonitor": 4.502,
+          "percentOnTwitter": 7.849
+        },
+        {
+          "id": 773,
+          "name": "Homework",
+          "relevancyScore": -2.5,
+          "percentInMonitor": 3.555,
+          "percentOnTwitter": 7.242
+        },
+        {
+          "id": 480,
+          "name": "Mtv",
+          "relevancyScore": -2.5,
+          "percentInMonitor": 3.318,
+          "percentOnTwitter": 7.131
+        },
+        {
+          "id": 1415,
+          "name": "One Direction",
+          "relevancyScore": -2.7,
+          "percentInMonitor": 1.659,
+          "percentOnTwitter": 8.686
+        },
+        {
+          "id": 361,
+          "name": "Games",
+          "relevancyScore": -2.8,
+          "percentInMonitor": 4.976,
+          "percentOnTwitter": 8.822
+        },
+        {
+          "id": 494,
+          "name": "Video Games",
+          "relevancyScore": -3,
+          "percentInMonitor": 4.976,
+          "percentOnTwitter": 9.07
+        },
+        {
+          "id": 977,
+          "name": "Justin Bieber",
+          "relevancyScore": -3.3,
+          "percentInMonitor": 2.844,
+          "percentOnTwitter": 8.952
+        },
+        {
+          "id": 253,
+          "name": "Fashion",
+          "relevancyScore": -3.4,
+          "percentInMonitor": 6.635,
+          "percentOnTwitter": 11.03
+        },
+        {
+          "id": 172,
+          "name": "Science And Technology",
+          "relevancyScore": -4.2,
+          "percentInMonitor": 8.294,
+          "percentOnTwitter": 13.721
+        },
+        {
+          "id": 1142,
+          "name": "Soccer",
+          "relevancyScore": -9.1,
+          "percentInMonitor": 4.976,
+          "percentOnTwitter": 31.166
+        }
+      ]
+    },
+    {
+      "startDate": "2017-05-26T00:00:00",
+      "endDate": "2017-05-27T00:00:00",
+      "info": [
+        {
+          "id": 782,
+          "name": "R&B",
+          "relevancyScore": 12.4,
+          "percentInMonitor": 7.558,
+          "percentOnTwitter": 1.46
+        },
+        {
+          "id": 1128,
+          "name": "Blogging",
+          "relevancyScore": 11.4,
+          "percentInMonitor": 2.907,
+          "percentOnTwitter": 0.058
+        },
+        {
+          "id": 531,
+          "name": "Nfl",
+          "relevancyScore": 10.7,
+          "percentInMonitor": 9.302,
+          "percentOnTwitter": 2.949
+        },
+        {
+          "id": 152,
+          "name": "Espn",
+          "relevancyScore": 9.7,
+          "percentInMonitor": 13.372,
+          "percentOnTwitter": 6.47
+        },
+        {
+          "id": 8938,
+          "name": "Cleveland Browns",
+          "relevancyScore": 8.7,
+          "percentInMonitor": 1.938,
+          "percentOnTwitter": 0.022
+        },
+        {
+          "id": 668,
+          "name": "Affordable Care Act",
+          "relevancyScore": 8.5,
+          "percentInMonitor": 3.488,
+          "percentOnTwitter": 0.306
+        },
+        {
+          "id": 1087,
+          "name": "Basketball",
+          "relevancyScore": 8.1,
+          "percentInMonitor": 23.643,
+          "percentOnTwitter": 16.791
+        },
+        {
+          "id": 6062,
+          "name": "Los Angeles Clippers",
+          "relevancyScore": 8.1,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.009
+        },
+        {
+          "id": 3384,
+          "name": "Msnbc",
+          "relevancyScore": 7.7,
+          "percentInMonitor": 2.326,
+          "percentOnTwitter": 0.083
+        },
+        {
+          "id": 1343,
+          "name": "Nascar",
+          "relevancyScore": 7.5,
+          "percentInMonitor": 2.713,
+          "percentOnTwitter": 0.172
+        },
+        {
+          "id": 538,
+          "name": "Texas",
+          "relevancyScore": 7.4,
+          "percentInMonitor": 4.651,
+          "percentOnTwitter": 0.949
+        },
+        {
+          "id": 5145,
+          "name": "New York Jets",
+          "relevancyScore": 6.7,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 0.01
+        },
+        {
+          "id": 472,
+          "name": "Baseball",
+          "relevancyScore": 6.7,
+          "percentInMonitor": 10.853,
+          "percentOnTwitter": 5.861
+        },
+        {
+          "id": 2671,
+          "name": "Celebrity",
+          "relevancyScore": 6.4,
+          "percentInMonitor": 1.744,
+          "percentOnTwitter": 0.043
+        },
+        {
+          "id": 3711,
+          "name": "Indianapolis 500",
+          "relevancyScore": 6.4,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 0.012
+        },
+        {
+          "id": 3075,
+          "name": "Nick Cannon",
+          "relevancyScore": 6,
+          "percentInMonitor": 1.744,
+          "percentOnTwitter": 0.057
+        },
+        {
+          "id": 1053,
+          "name": "Cleveland",
+          "relevancyScore": 5.7,
+          "percentInMonitor": 2.713,
+          "percentOnTwitter": 0.334
+        },
+        {
+          "id": 1210,
+          "name": "Ohio",
+          "relevancyScore": 5.5,
+          "percentInMonitor": 2.326,
+          "percentOnTwitter": 0.217
+        },
+        {
+          "id": 325,
+          "name": "Star Trek",
+          "relevancyScore": 5.4,
+          "percentInMonitor": 1.744,
+          "percentOnTwitter": 0.081
+        },
+        {
+          "id": 295,
+          "name": "Country Music",
+          "relevancyScore": 5,
+          "percentInMonitor": 3.682,
+          "percentOnTwitter": 0.957
+        },
+        {
+          "id": 598,
+          "name": "Denver",
+          "relevancyScore": 4.7,
+          "percentInMonitor": 1.744,
+          "percentOnTwitter": 0.117
+        },
+        {
+          "id": 543,
+          "name": "Nbc",
+          "relevancyScore": 4.6,
+          "percentInMonitor": 2.132,
+          "percentOnTwitter": 0.247
+        },
+        {
+          "id": 3149,
+          "name": "Coupons",
+          "relevancyScore": 4.6,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.081
+        },
+        {
+          "id": 1327,
+          "name": "Nfl Network",
+          "relevancyScore": 4.4,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.092
+        },
+        {
+          "id": 1097,
+          "name": "Houston",
+          "relevancyScore": 4.2,
+          "percentInMonitor": 2.713,
+          "percentOnTwitter": 0.57
+        },
+        {
+          "id": 1427,
+          "name": "Nhl",
+          "relevancyScore": 4.1,
+          "percentInMonitor": 3.101,
+          "percentOnTwitter": 0.819
+        },
+        {
+          "id": 486,
+          "name": "Hockey",
+          "relevancyScore": 4.1,
+          "percentInMonitor": 4.651,
+          "percentOnTwitter": 1.936
+        },
+        {
+          "id": 1085,
+          "name": "Moms",
+          "relevancyScore": 4,
+          "percentInMonitor": 2.132,
+          "percentOnTwitter": 0.324
+        },
+        {
+          "id": 593,
+          "name": "College Football",
+          "relevancyScore": 3.7,
+          "percentInMonitor": 2.132,
+          "percentOnTwitter": 0.382
+        },
+        {
+          "id": 202,
+          "name": "Ohio State University",
+          "relevancyScore": 3.7,
+          "percentInMonitor": 1.938,
+          "percentOnTwitter": 0.293
+        },
+        {
+          "id": 329,
+          "name": "Advertising",
+          "relevancyScore": 3.3,
+          "percentInMonitor": 2.519,
+          "percentOnTwitter": 0.668
+        },
+        {
+          "id": 1226,
+          "name": "Bears",
+          "relevancyScore": 3.3,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.181
+        },
+        {
+          "id": 3733,
+          "name": "Jerry Jones",
+          "relevancyScore": 3.3,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 0.119
+        },
+        {
+          "id": 3618,
+          "name": "California",
+          "relevancyScore": 3.2,
+          "percentInMonitor": 1.938,
+          "percentOnTwitter": 0.366
+        },
+        {
+          "id": 1395,
+          "name": "Boston",
+          "relevancyScore": 2.9,
+          "percentInMonitor": 2.519,
+          "percentOnTwitter": 0.786
+        },
+        {
+          "id": 3730,
+          "name": "Politico",
+          "relevancyScore": 2.8,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.255
+        },
+        {
+          "id": 660,
+          "name": "Wrestling",
+          "relevancyScore": 2.6,
+          "percentInMonitor": 2.326,
+          "percentOnTwitter": 0.751
+        },
+        {
+          "id": 1301,
+          "name": "Arizona",
+          "relevancyScore": 2.6,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 0.2
+        },
+        {
+          "id": 819,
+          "name": "Christianity",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 2.132,
+          "percentOnTwitter": 0.676
+        },
+        {
+          "id": 644,
+          "name": "Louisiana",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 0.226
+        },
+        {
+          "id": 696,
+          "name": "Theology",
+          "relevancyScore": 2.3,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 0.249
+        },
+        {
+          "id": 375,
+          "name": "Nutrition",
+          "relevancyScore": 2.2,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.373
+        },
+        {
+          "id": 1023,
+          "name": "Georgia",
+          "relevancyScore": 2.1,
+          "percentInMonitor": 1.744,
+          "percentOnTwitter": 0.514
+        },
+        {
+          "id": 207,
+          "name": "Michigan",
+          "relevancyScore": 2.1,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.406
+        },
+        {
+          "id": 3869,
+          "name": "Alabama",
+          "relevancyScore": 2,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 0.308
+        },
+        {
+          "id": 284,
+          "name": "Dallas",
+          "relevancyScore": 1.9,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.468
+        },
+        {
+          "id": 87,
+          "name": "Florida",
+          "relevancyScore": 1.8,
+          "percentInMonitor": 1.938,
+          "percentOnTwitter": 0.747
+        },
+        {
+          "id": 1067,
+          "name": "Wwe",
+          "relevancyScore": 1.8,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.475
+        },
+        {
+          "id": 1328,
+          "name": "Tattoos",
+          "relevancyScore": 1.8,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.48
+        },
+        {
+          "id": 915,
+          "name": "Ncaa",
+          "relevancyScore": 1.8,
+          "percentInMonitor": 3.682,
+          "percentOnTwitter": 2.286
+        },
+        {
+          "id": 1050,
+          "name": "Volleyball",
+          "relevancyScore": 1.5,
+          "percentInMonitor": 1.744,
+          "percentOnTwitter": 0.72
+        },
+        {
+          "id": 334,
+          "name": "Golf",
+          "relevancyScore": 1.5,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 0.457
+        },
+        {
+          "id": 299,
+          "name": "Starbucks",
+          "relevancyScore": 1.4,
+          "percentInMonitor": 2.326,
+          "percentOnTwitter": 1.249
+        },
+        {
+          "id": 707,
+          "name": "Atlanta",
+          "relevancyScore": 1.4,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.614
+        },
+        {
+          "id": 956,
+          "name": "Las Vegas",
+          "relevancyScore": 1.4,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.639
+        },
+        {
+          "id": 270,
+          "name": "Fitness",
+          "relevancyScore": 1.4,
+          "percentInMonitor": 5.233,
+          "percentOnTwitter": 4.041
+        },
+        {
+          "id": 231,
+          "name": "Chicago",
+          "relevancyScore": 1.3,
+          "percentInMonitor": 2.132,
+          "percentOnTwitter": 1.161
+        },
+        {
+          "id": 617,
+          "name": "Management",
+          "relevancyScore": 1.2,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.704
+        },
+        {
+          "id": 1070,
+          "name": "Sports News",
+          "relevancyScore": 1.2,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.728
+        },
+        {
+          "id": 544,
+          "name": "Nba",
+          "relevancyScore": 1.1,
+          "percentInMonitor": 5.814,
+          "percentOnTwitter": 4.814
+        },
+        {
+          "id": 659,
+          "name": "Cats",
+          "relevancyScore": 1,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 0.804
+        },
+        {
+          "id": 339,
+          "name": "Cnn",
+          "relevancyScore": 0.9,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 0.722
+        },
+        {
+          "id": 788,
+          "name": "Sneakers",
+          "relevancyScore": 0.7,
+          "percentInMonitor": 1.938,
+          "percentOnTwitter": 1.336
+        },
+        {
+          "id": 173,
+          "name": "Miami",
+          "relevancyScore": 0.6,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 1.052
+        },
+        {
+          "id": 3645,
+          "name": "Beyonce",
+          "relevancyScore": 0.5,
+          "percentInMonitor": 2.132,
+          "percentOnTwitter": 1.714
+        },
+        {
+          "id": 596,
+          "name": "Actors",
+          "relevancyScore": 0.3,
+          "percentInMonitor": 3.101,
+          "percentOnTwitter": 2.814
+        },
+        {
+          "id": 633,
+          "name": "Xbox",
+          "relevancyScore": 0.3,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 1.088
+        },
+        {
+          "id": 265,
+          "name": "Lil Wayne",
+          "relevancyScore": 0.2,
+          "percentInMonitor": 1.938,
+          "percentOnTwitter": 1.711
+        },
+        {
+          "id": 905,
+          "name": "Paparazzi",
+          "relevancyScore": 0.2,
+          "percentInMonitor": 2.519,
+          "percentOnTwitter": 2.36
+        },
+        {
+          "id": 1147,
+          "name": "Canada",
+          "relevancyScore": 0.2,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 1.399
+        },
+        {
+          "id": 534,
+          "name": "World News",
+          "relevancyScore": 0.1,
+          "percentInMonitor": 4.07,
+          "percentOnTwitter": 3.942
+        },
+        {
+          "id": 176,
+          "name": "Soundcloud",
+          "relevancyScore": 0.1,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 1.29
+        },
+        {
+          "id": 220,
+          "name": "Writing",
+          "relevancyScore": 0,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 1.526
+        },
+        {
+          "id": 3274,
+          "name": "Finance",
+          "relevancyScore": 0,
+          "percentInMonitor": 2.713,
+          "percentOnTwitter": 2.71
+        },
+        {
+          "id": 3864,
+          "name": "X Factor",
+          "relevancyScore": -0.1,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 1.438
+        },
+        {
+          "id": 1383,
+          "name": "Math",
+          "relevancyScore": -0.1,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 1.481
+        },
+        {
+          "id": 28,
+          "name": "Sportscenter",
+          "relevancyScore": -0.2,
+          "percentInMonitor": 3.295,
+          "percentOnTwitter": 3.512
+        },
+        {
+          "id": 501,
+          "name": "Shoes",
+          "relevancyScore": -0.2,
+          "percentInMonitor": 2.907,
+          "percentOnTwitter": 3.139
+        },
+        {
+          "id": 3859,
+          "name": "Beauty",
+          "relevancyScore": -0.3,
+          "percentInMonitor": 3.488,
+          "percentOnTwitter": 3.853
+        },
+        {
+          "id": 115,
+          "name": "Health",
+          "relevancyScore": -0.4,
+          "percentInMonitor": 7.752,
+          "percentOnTwitter": 8.121
+        },
+        {
+          "id": 320,
+          "name": "Hip Hop",
+          "relevancyScore": -0.4,
+          "percentInMonitor": 7.171,
+          "percentOnTwitter": 7.599
+        },
+        {
+          "id": 322,
+          "name": "Entertainment News",
+          "relevancyScore": -0.4,
+          "percentInMonitor": 2.132,
+          "percentOnTwitter": 2.622
+        },
+        {
+          "id": 1406,
+          "name": "Apple",
+          "relevancyScore": -0.8,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 2.367
+        },
+        {
+          "id": 248,
+          "name": "Animals",
+          "relevancyScore": -0.8,
+          "percentInMonitor": 1.744,
+          "percentOnTwitter": 2.725
+        },
+        {
+          "id": 373,
+          "name": "Health Care",
+          "relevancyScore": -0.9,
+          "percentInMonitor": 1.744,
+          "percentOnTwitter": 2.884
+        },
+        {
+          "id": 909,
+          "name": "Chelsea",
+          "relevancyScore": -1,
+          "percentInMonitor": 1.55,
+          "percentOnTwitter": 2.951
+        },
+        {
+          "id": 650,
+          "name": "Cars",
+          "relevancyScore": -1.2,
+          "percentInMonitor": 2.713,
+          "percentOnTwitter": 4.16
+        },
+        {
+          "id": 326,
+          "name": "Miley Cyrus",
+          "relevancyScore": -1.3,
+          "percentInMonitor": 1.357,
+          "percentOnTwitter": 3.592
+        },
+        {
+          "id": 1364,
+          "name": "College",
+          "relevancyScore": -1.4,
+          "percentInMonitor": 4.651,
+          "percentOnTwitter": 6.296
+        },
+        {
+          "id": 657,
+          "name": "News And Media",
+          "relevancyScore": -1.4,
+          "percentInMonitor": 4.264,
+          "percentOnTwitter": 5.968
+        },
+        {
+          "id": 480,
+          "name": "Mtv",
+          "relevancyScore": -2.5,
+          "percentInMonitor": 3.488,
+          "percentOnTwitter": 7.131
+        },
+        {
+          "id": 773,
+          "name": "Homework",
+          "relevancyScore": -2.5,
+          "percentInMonitor": 3.488,
+          "percentOnTwitter": 7.242
+        },
+        {
+          "id": 494,
+          "name": "Video Games",
+          "relevancyScore": -2.6,
+          "percentInMonitor": 5.814,
+          "percentOnTwitter": 9.07
+        },
+        {
+          "id": 361,
+          "name": "Games",
+          "relevancyScore": -2.8,
+          "percentInMonitor": 5.039,
+          "percentOnTwitter": 8.822
+        },
+        {
+          "id": 1176,
+          "name": "Astrology",
+          "relevancyScore": -2.8,
+          "percentInMonitor": 3.488,
+          "percentOnTwitter": 7.849
+        },
+        {
+          "id": 1415,
+          "name": "One Direction",
+          "relevancyScore": -2.9,
+          "percentInMonitor": 1.938,
+          "percentOnTwitter": 8.686
+        },
+        {
+          "id": 977,
+          "name": "Justin Bieber",
+          "relevancyScore": -3,
+          "percentInMonitor": 1.938,
+          "percentOnTwitter": 8.952
+        },
+        {
+          "id": 253,
+          "name": "Fashion",
+          "relevancyScore": -4,
+          "percentInMonitor": 4.845,
+          "percentOnTwitter": 11.03
+        },
+        {
+          "id": 172,
+          "name": "Science And Technology",
+          "relevancyScore": -4.8,
+          "percentInMonitor": 6.589,
+          "percentOnTwitter": 13.721
+        },
+        {
+          "id": 1142,
+          "name": "Soccer",
+          "relevancyScore": -8.5,
+          "percentInMonitor": 4.264,
+          "percentOnTwitter": 31.166
+        }
+      ]
+    },
+    {
+      "startDate": "2017-05-27T00:00:00",
+      "endDate": "2017-05-28T00:00:00",
+      "info": [
+        {
+          "id": 822,
+          "name": "Kendrick Perkins",
+          "relevancyScore": 32.8,
+          "percentInMonitor": 7.429,
+          "percentOnTwitter": 0.089
+        },
+        {
+          "id": 851,
+          "name": "Miami Heat",
+          "relevancyScore": 22.3,
+          "percentInMonitor": 7.143,
+          "percentOnTwitter": 0.315
+        },
+        {
+          "id": 1003,
+          "name": "Nba Finals",
+          "relevancyScore": 20.4,
+          "percentInMonitor": 6.286,
+          "percentOnTwitter": 0.246
+        },
+        {
+          "id": 231,
+          "name": "Chicago",
+          "relevancyScore": 18,
+          "percentInMonitor": 8.857,
+          "percentOnTwitter": 1.161
+        },
+        {
+          "id": 173,
+          "name": "Miami",
+          "relevancyScore": 15.4,
+          "percentInMonitor": 7.714,
+          "percentOnTwitter": 1.052
+        },
+        {
+          "id": 152,
+          "name": "Espn",
+          "relevancyScore": 14.5,
+          "percentInMonitor": 16,
+          "percentOnTwitter": 6.47
+        },
+        {
+          "id": 544,
+          "name": "Nba",
+          "relevancyScore": 12.6,
+          "percentInMonitor": 12.857,
+          "percentOnTwitter": 4.814
+        },
+        {
+          "id": 1087,
+          "name": "Basketball",
+          "relevancyScore": 11.8,
+          "percentInMonitor": 26.286,
+          "percentOnTwitter": 16.791
+        },
+        {
+          "id": 531,
+          "name": "Nfl",
+          "relevancyScore": 11,
+          "percentInMonitor": 9.429,
+          "percentOnTwitter": 2.949
+        },
+        {
+          "id": 668,
+          "name": "Affordable Care Act",
+          "relevancyScore": 9.3,
+          "percentInMonitor": 3.714,
+          "percentOnTwitter": 0.306
+        },
+        {
+          "id": 28,
+          "name": "Sportscenter",
+          "relevancyScore": 8.7,
+          "percentInMonitor": 9.143,
+          "percentOnTwitter": 3.512
+        },
+        {
+          "id": 472,
+          "name": "Baseball",
+          "relevancyScore": 8.6,
+          "percentInMonitor": 12,
+          "percentOnTwitter": 5.861
+        },
+        {
+          "id": 3711,
+          "name": "Indianapolis 500",
+          "relevancyScore": 8.5,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.012
+        },
+        {
+          "id": 320,
+          "name": "Hip Hop",
+          "relevancyScore": 8.1,
+          "percentInMonitor": 13.714,
+          "percentOnTwitter": 7.599
+        },
+        {
+          "id": 4142,
+          "name": "High School",
+          "relevancyScore": 8.1,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.005
+        },
+        {
+          "id": 325,
+          "name": "Star Trek",
+          "relevancyScore": 7.6,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 0.081
+        },
+        {
+          "id": 3384,
+          "name": "Msnbc",
+          "relevancyScore": 7.6,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 0.083
+        },
+        {
+          "id": 4483,
+          "name": "Oregon Coast",
+          "relevancyScore": 7.2,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.009
+        },
+        {
+          "id": 5145,
+          "name": "New York Jets",
+          "relevancyScore": 7.1,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.01
+        },
+        {
+          "id": 782,
+          "name": "R&B",
+          "relevancyScore": 6.5,
+          "percentInMonitor": 5.143,
+          "percentOnTwitter": 1.46
+        },
+        {
+          "id": 2671,
+          "name": "Celebrity",
+          "relevancyScore": 6.3,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.043
+        },
+        {
+          "id": 4766,
+          "name": "Green Bay Packers",
+          "relevancyScore": 6.2,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.018
+        },
+        {
+          "id": 1343,
+          "name": "Nascar",
+          "relevancyScore": 5.9,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 0.172
+        },
+        {
+          "id": 1128,
+          "name": "Blogging",
+          "relevancyScore": 5.8,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.058
+        },
+        {
+          "id": 3730,
+          "name": "Politico",
+          "relevancyScore": 5,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 0.255
+        },
+        {
+          "id": 159,
+          "name": "Podcasts",
+          "relevancyScore": 4.9,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.096
+        },
+        {
+          "id": 89,
+          "name": "San Francisco 49ers",
+          "relevancyScore": 4.8,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.05
+        },
+        {
+          "id": 641,
+          "name": "Msu",
+          "relevancyScore": 4.8,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.05
+        },
+        {
+          "id": 1329,
+          "name": "Conservative Politics",
+          "relevancyScore": 4.6,
+          "percentInMonitor": 2,
+          "percentOnTwitter": 0.198
+        },
+        {
+          "id": 3149,
+          "name": "Coupons",
+          "relevancyScore": 4.1,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.081
+        },
+        {
+          "id": 339,
+          "name": "Cnn",
+          "relevancyScore": 3.9,
+          "percentInMonitor": 2.857,
+          "percentOnTwitter": 0.722
+        },
+        {
+          "id": 762,
+          "name": "E Books",
+          "relevancyScore": 3.9,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.095
+        },
+        {
+          "id": 476,
+          "name": "Playstation 3",
+          "relevancyScore": 3.6,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.204
+        },
+        {
+          "id": 1129,
+          "name": "Detroit",
+          "relevancyScore": 3.6,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 0.47
+        },
+        {
+          "id": 328,
+          "name": "Deals",
+          "relevancyScore": 3.6,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 0.471
+        },
+        {
+          "id": 812,
+          "name": "Benghazi",
+          "relevancyScore": 3.6,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.216
+        },
+        {
+          "id": 660,
+          "name": "Wrestling",
+          "relevancyScore": 3.2,
+          "percentInMonitor": 2.571,
+          "percentOnTwitter": 0.751
+        },
+        {
+          "id": 3443,
+          "name": "Science Fiction",
+          "relevancyScore": 3.1,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.165
+        },
+        {
+          "id": 626,
+          "name": "Law",
+          "relevancyScore": 3,
+          "percentInMonitor": 2.857,
+          "percentOnTwitter": 0.997
+        },
+        {
+          "id": 189,
+          "name": "Lsu",
+          "relevancyScore": 3,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.176
+        },
+        {
+          "id": 333,
+          "name": "Pittsburgh",
+          "relevancyScore": 3,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.306
+        },
+        {
+          "id": 783,
+          "name": "Liberty",
+          "relevancyScore": 2.9,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.311
+        },
+        {
+          "id": 284,
+          "name": "Dallas",
+          "relevancyScore": 2.9,
+          "percentInMonitor": 2,
+          "percentOnTwitter": 0.468
+        },
+        {
+          "id": 486,
+          "name": "Hockey",
+          "relevancyScore": 2.9,
+          "percentInMonitor": 4,
+          "percentOnTwitter": 1.936
+        },
+        {
+          "id": 329,
+          "name": "Advertising",
+          "relevancyScore": 2.8,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 0.668
+        },
+        {
+          "id": 1210,
+          "name": "Ohio",
+          "relevancyScore": 2.7,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.217
+        },
+        {
+          "id": 1070,
+          "name": "Sports News",
+          "relevancyScore": 2.6,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 0.728
+        },
+        {
+          "id": 375,
+          "name": "Nutrition",
+          "relevancyScore": 2.6,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.373
+        },
+        {
+          "id": 593,
+          "name": "College Football",
+          "relevancyScore": 2.6,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.382
+        },
+        {
+          "id": 905,
+          "name": "Paparazzi",
+          "relevancyScore": 2.6,
+          "percentInMonitor": 4.286,
+          "percentOnTwitter": 2.36
+        },
+        {
+          "id": 543,
+          "name": "Nbc",
+          "relevancyScore": 2.5,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.247
+        },
+        {
+          "id": 207,
+          "name": "Michigan",
+          "relevancyScore": 2.5,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.406
+        },
+        {
+          "id": 3064,
+          "name": "Ciara",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.417
+        },
+        {
+          "id": 911,
+          "name": "Ufc",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.267
+        },
+        {
+          "id": 2787,
+          "name": "Cosmetics",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.274
+        },
+        {
+          "id": 828,
+          "name": "Comics",
+          "relevancyScore": 2.3,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.458
+        },
+        {
+          "id": 3691,
+          "name": "Sales",
+          "relevancyScore": 2.2,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.3
+        },
+        {
+          "id": 1067,
+          "name": "Wwe",
+          "relevancyScore": 2.2,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.475
+        },
+        {
+          "id": 1010,
+          "name": "Cooking",
+          "relevancyScore": 2.2,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.484
+        },
+        {
+          "id": 1085,
+          "name": "Moms",
+          "relevancyScore": 2.1,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.324
+        },
+        {
+          "id": 538,
+          "name": "Texas",
+          "relevancyScore": 2,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 0.949
+        },
+        {
+          "id": 3618,
+          "name": "California",
+          "relevancyScore": 1.9,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.366
+        },
+        {
+          "id": 1427,
+          "name": "Nhl",
+          "relevancyScore": 1.8,
+          "percentInMonitor": 2,
+          "percentOnTwitter": 0.819
+        },
+        {
+          "id": 1027,
+          "name": "Playstation",
+          "relevancyScore": 1.7,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 0.619
+        },
+        {
+          "id": 633,
+          "name": "Xbox",
+          "relevancyScore": 1.7,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 1.088
+        },
+        {
+          "id": 185,
+          "name": "Amazon",
+          "relevancyScore": 1.3,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.568
+        },
+        {
+          "id": 383,
+          "name": "Make Up",
+          "relevancyScore": 1.3,
+          "percentInMonitor": 2,
+          "percentOnTwitter": 1.035
+        },
+        {
+          "id": 1147,
+          "name": "Canada",
+          "relevancyScore": 1.1,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 1.399
+        },
+        {
+          "id": 596,
+          "name": "Actors",
+          "relevancyScore": 1,
+          "percentInMonitor": 3.714,
+          "percentOnTwitter": 2.814
+        },
+        {
+          "id": 87,
+          "name": "Florida",
+          "relevancyScore": 0.9,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.747
+        },
+        {
+          "id": 220,
+          "name": "Writing",
+          "relevancyScore": 0.9,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 1.526
+        },
+        {
+          "id": 1395,
+          "name": "Boston",
+          "relevancyScore": 0.9,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 0.786
+        },
+        {
+          "id": 3859,
+          "name": "Beauty",
+          "relevancyScore": 0.8,
+          "percentInMonitor": 4.571,
+          "percentOnTwitter": 3.853
+        },
+        {
+          "id": 1383,
+          "name": "Math",
+          "relevancyScore": 0.6,
+          "percentInMonitor": 2,
+          "percentOnTwitter": 1.481
+        },
+        {
+          "id": 3645,
+          "name": "Beyonce",
+          "relevancyScore": 0.3,
+          "percentInMonitor": 2,
+          "percentOnTwitter": 1.714
+        },
+        {
+          "id": 373,
+          "name": "Health Care",
+          "relevancyScore": 0.3,
+          "percentInMonitor": 3.143,
+          "percentOnTwitter": 2.884
+        },
+        {
+          "id": 915,
+          "name": "Ncaa",
+          "relevancyScore": 0,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 2.286
+        },
+        {
+          "id": 3274,
+          "name": "Finance",
+          "relevancyScore": -0.4,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 2.71
+        },
+        {
+          "id": 103,
+          "name": "Glee",
+          "relevancyScore": -0.4,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 1.92
+        },
+        {
+          "id": 236,
+          "name": "Software Development",
+          "relevancyScore": -0.4,
+          "percentInMonitor": 2,
+          "percentOnTwitter": 2.488
+        },
+        {
+          "id": 115,
+          "name": "Health",
+          "relevancyScore": -0.7,
+          "percentInMonitor": 7.429,
+          "percentOnTwitter": 8.121
+        },
+        {
+          "id": 1406,
+          "name": "Apple",
+          "relevancyScore": -0.7,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 2.367
+        },
+        {
+          "id": 322,
+          "name": "Entertainment News",
+          "relevancyScore": -0.7,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 2.622
+        },
+        {
+          "id": 560,
+          "name": "Disney",
+          "relevancyScore": -0.8,
+          "percentInMonitor": 3.143,
+          "percentOnTwitter": 4.084
+        },
+        {
+          "id": 534,
+          "name": "World News",
+          "relevancyScore": -0.9,
+          "percentInMonitor": 2.857,
+          "percentOnTwitter": 3.942
+        },
+        {
+          "id": 270,
+          "name": "Fitness",
+          "relevancyScore": -1,
+          "percentInMonitor": 2.857,
+          "percentOnTwitter": 4.041
+        },
+        {
+          "id": 501,
+          "name": "Shoes",
+          "relevancyScore": -1,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 3.139
+        },
+        {
+          "id": 326,
+          "name": "Miley Cyrus",
+          "relevancyScore": -1.3,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 3.592
+        },
+        {
+          "id": 650,
+          "name": "Cars",
+          "relevancyScore": -1.4,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 4.16
+        },
+        {
+          "id": 494,
+          "name": "Video Games",
+          "relevancyScore": -1.9,
+          "percentInMonitor": 6.857,
+          "percentOnTwitter": 9.07
+        },
+        {
+          "id": 1364,
+          "name": "College",
+          "relevancyScore": -2.1,
+          "percentInMonitor": 3.429,
+          "percentOnTwitter": 6.296
+        },
+        {
+          "id": 657,
+          "name": "News And Media",
+          "relevancyScore": -2.1,
+          "percentInMonitor": 2.857,
+          "percentOnTwitter": 5.968
+        },
+        {
+          "id": 773,
+          "name": "Homework",
+          "relevancyScore": -2.3,
+          "percentInMonitor": 1.429,
+          "percentOnTwitter": 7.242
+        },
+        {
+          "id": 480,
+          "name": "Mtv",
+          "relevancyScore": -2.4,
+          "percentInMonitor": 1.714,
+          "percentOnTwitter": 7.131
+        },
+        {
+          "id": 1176,
+          "name": "Astrology",
+          "relevancyScore": -2.9,
+          "percentInMonitor": 2.571,
+          "percentOnTwitter": 7.849
+        },
+        {
+          "id": 361,
+          "name": "Games",
+          "relevancyScore": -3.1,
+          "percentInMonitor": 4.286,
+          "percentOnTwitter": 8.822
+        },
+        {
+          "id": 1415,
+          "name": "One Direction",
+          "relevancyScore": -3.1,
+          "percentInMonitor": 2.571,
+          "percentOnTwitter": 8.686
+        },
+        {
+          "id": 253,
+          "name": "Fashion",
+          "relevancyScore": -3.3,
+          "percentInMonitor": 6.857,
+          "percentOnTwitter": 11.03
+        },
+        {
+          "id": 172,
+          "name": "Science And Technology",
+          "relevancyScore": -4.3,
+          "percentInMonitor": 8,
+          "percentOnTwitter": 13.721
+        },
+        {
+          "id": 1142,
+          "name": "Soccer",
+          "relevancyScore": -6,
+          "percentInMonitor": 2.286,
+          "percentOnTwitter": 31.166
+        }
+      ]
+    },
+    {
+      "startDate": "2017-05-28T00:00:00",
+      "endDate": "2017-05-29T00:00:00",
+      "info": [
+        {
+          "id": 1848,
+          "name": "Nancy Grace",
+          "relevancyScore": 47.5,
+          "percentInMonitor": 6.336,
+          "percentOnTwitter": 0.004
+        },
+        {
+          "id": 3237,
+          "name": "Livestrong",
+          "relevancyScore": 32.2,
+          "percentInMonitor": 5.234,
+          "percentOnTwitter": 0.011
+        },
+        {
+          "id": 3910,
+          "name": "Rabbitmq",
+          "relevancyScore": 30.5,
+          "percentInMonitor": 4.959,
+          "percentOnTwitter": 0.011
+        },
+        {
+          "id": 2393,
+          "name": "Arias",
+          "relevancyScore": 27.6,
+          "percentInMonitor": 6.336,
+          "percentOnTwitter": 0.081
+        },
+        {
+          "id": 339,
+          "name": "Cnn",
+          "relevancyScore": 25,
+          "percentInMonitor": 9.642,
+          "percentOnTwitter": 0.722
+        },
+        {
+          "id": 3246,
+          "name": "Crime",
+          "relevancyScore": 20,
+          "percentInMonitor": 6.336,
+          "percentOnTwitter": 0.27
+        },
+        {
+          "id": 3384,
+          "name": "Msnbc",
+          "relevancyScore": 13.5,
+          "percentInMonitor": 3.581,
+          "percentOnTwitter": 0.083
+        },
+        {
+          "id": 2671,
+          "name": "Celebrity",
+          "relevancyScore": 11.4,
+          "percentInMonitor": 2.755,
+          "percentOnTwitter": 0.043
+        },
+        {
+          "id": 3964,
+          "name": "Kansas State University",
+          "relevancyScore": 11.1,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 0.002
+        },
+        {
+          "id": 782,
+          "name": "R&B",
+          "relevancyScore": 9.3,
+          "percentInMonitor": 6.336,
+          "percentOnTwitter": 1.46
+        },
+        {
+          "id": 3903,
+          "name": "University Of Kansas",
+          "relevancyScore": 9,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.002
+        },
+        {
+          "id": 4755,
+          "name": "Snapchat",
+          "relevancyScore": 8.6,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 0.044
+        },
+        {
+          "id": 543,
+          "name": "Nbc",
+          "relevancyScore": 8.6,
+          "percentInMonitor": 3.306,
+          "percentOnTwitter": 0.247
+        },
+        {
+          "id": 3850,
+          "name": "Kansas",
+          "relevancyScore": 7.1,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 0.087
+        },
+        {
+          "id": 472,
+          "name": "Baseball",
+          "relevancyScore": 7,
+          "percentInMonitor": 11.019,
+          "percentOnTwitter": 5.861
+        },
+        {
+          "id": 1080,
+          "name": "Nbc News",
+          "relevancyScore": 6,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.018
+        },
+        {
+          "id": 449,
+          "name": "Real Housewives",
+          "relevancyScore": 5.8,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 0.162
+        },
+        {
+          "id": 770,
+          "name": "Pierce The Veil",
+          "relevancyScore": 5.6,
+          "percentInMonitor": 1.928,
+          "percentOnTwitter": 0.107
+        },
+        {
+          "id": 1128,
+          "name": "Blogging",
+          "relevancyScore": 5.5,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 0.058
+        },
+        {
+          "id": 668,
+          "name": "Affordable Care Act",
+          "relevancyScore": 5.2,
+          "percentInMonitor": 2.479,
+          "percentOnTwitter": 0.306
+        },
+        {
+          "id": 1327,
+          "name": "Nfl Network",
+          "relevancyScore": 4.8,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 0.092
+        },
+        {
+          "id": 1085,
+          "name": "Moms",
+          "relevancyScore": 4.2,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 0.324
+        },
+        {
+          "id": 715,
+          "name": "Progressive Politics",
+          "relevancyScore": 4.1,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 0.14
+        },
+        {
+          "id": 544,
+          "name": "Nba",
+          "relevancyScore": 4,
+          "percentInMonitor": 7.989,
+          "percentOnTwitter": 4.814
+        },
+        {
+          "id": 3149,
+          "name": "Coupons",
+          "relevancyScore": 3.9,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.081
+        },
+        {
+          "id": 325,
+          "name": "Star Trek",
+          "relevancyScore": 3.9,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.081
+        },
+        {
+          "id": 3730,
+          "name": "Politico",
+          "relevancyScore": 3.9,
+          "percentInMonitor": 1.928,
+          "percentOnTwitter": 0.255
+        },
+        {
+          "id": 531,
+          "name": "Nfl",
+          "relevancyScore": 3.9,
+          "percentInMonitor": 5.785,
+          "percentOnTwitter": 2.949
+        },
+        {
+          "id": 820,
+          "name": "Recipes",
+          "relevancyScore": 3.9,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 0.159
+        },
+        {
+          "id": 981,
+          "name": "Oklahoma",
+          "relevancyScore": 3.8,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 0.163
+        },
+        {
+          "id": 1097,
+          "name": "Houston",
+          "relevancyScore": 3.6,
+          "percentInMonitor": 2.479,
+          "percentOnTwitter": 0.57
+        },
+        {
+          "id": 1344,
+          "name": "Louis Ck",
+          "relevancyScore": 3.6,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 0.185
+        },
+        {
+          "id": 152,
+          "name": "Espn",
+          "relevancyScore": 3.5,
+          "percentInMonitor": 9.366,
+          "percentOnTwitter": 6.47
+        },
+        {
+          "id": 764,
+          "name": "Dolphins",
+          "relevancyScore": 3.5,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.112
+        },
+        {
+          "id": 293,
+          "name": "Cma Awards",
+          "relevancyScore": 3.4,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.12
+        },
+        {
+          "id": 1010,
+          "name": "Cooking",
+          "relevancyScore": 3.3,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 0.484
+        },
+        {
+          "id": 1087,
+          "name": "Basketball",
+          "relevancyScore": 3.3,
+          "percentInMonitor": 19.835,
+          "percentOnTwitter": 16.791
+        },
+        {
+          "id": 584,
+          "name": "Parenting",
+          "relevancyScore": 3.2,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 0.238
+        },
+        {
+          "id": 3282,
+          "name": "Orlando",
+          "relevancyScore": 3,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.16
+        },
+        {
+          "id": 405,
+          "name": "The Voice",
+          "relevancyScore": 2.9,
+          "percentInMonitor": 1.928,
+          "percentOnTwitter": 0.434
+        },
+        {
+          "id": 1395,
+          "name": "Boston",
+          "relevancyScore": 2.8,
+          "percentInMonitor": 2.479,
+          "percentOnTwitter": 0.786
+        },
+        {
+          "id": 997,
+          "name": "Food And Drink",
+          "relevancyScore": 2.5,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 0.37
+        },
+        {
+          "id": 87,
+          "name": "Florida",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 0.747
+        },
+        {
+          "id": 231,
+          "name": "Chicago",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 2.755,
+          "percentOnTwitter": 1.161
+        },
+        {
+          "id": 295,
+          "name": "Country Music",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 2.479,
+          "percentOnTwitter": 0.957
+        },
+        {
+          "id": 185,
+          "name": "Amazon",
+          "relevancyScore": 2.4,
+          "percentInMonitor": 1.928,
+          "percentOnTwitter": 0.568
+        },
+        {
+          "id": 2787,
+          "name": "Cosmetics",
+          "relevancyScore": 2.2,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.274
+        },
+        {
+          "id": 284,
+          "name": "Dallas",
+          "relevancyScore": 2.1,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 0.468
+        },
+        {
+          "id": 3385,
+          "name": "Youtube",
+          "relevancyScore": 2.1,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 0.864
+        },
+        {
+          "id": 3869,
+          "name": "Alabama",
+          "relevancyScore": 2.1,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.308
+        },
+        {
+          "id": 375,
+          "name": "Nutrition",
+          "relevancyScore": 1.8,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.373
+        },
+        {
+          "id": 659,
+          "name": "Cats",
+          "relevancyScore": 1.7,
+          "percentInMonitor": 1.928,
+          "percentOnTwitter": 0.804
+        },
+        {
+          "id": 173,
+          "name": "Miami",
+          "relevancyScore": 1.6,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 1.052
+        },
+        {
+          "id": 596,
+          "name": "Actors",
+          "relevancyScore": 1.6,
+          "percentInMonitor": 4.132,
+          "percentOnTwitter": 2.814
+        },
+        {
+          "id": 828,
+          "name": "Comics",
+          "relevancyScore": 1.5,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.458
+        },
+        {
+          "id": 1129,
+          "name": "Detroit",
+          "relevancyScore": 1.5,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.47
+        },
+        {
+          "id": 538,
+          "name": "Texas",
+          "relevancyScore": 1.4,
+          "percentInMonitor": 1.928,
+          "percentOnTwitter": 0.949
+        },
+        {
+          "id": 486,
+          "name": "Hockey",
+          "relevancyScore": 1.4,
+          "percentInMonitor": 3.03,
+          "percentOnTwitter": 1.936
+        },
+        {
+          "id": 3864,
+          "name": "X Factor",
+          "relevancyScore": 1.3,
+          "percentInMonitor": 2.479,
+          "percentOnTwitter": 1.438
+        },
+        {
+          "id": 1406,
+          "name": "Apple",
+          "relevancyScore": 0.7,
+          "percentInMonitor": 3.03,
+          "percentOnTwitter": 2.367
+        },
+        {
+          "id": 1427,
+          "name": "Nhl",
+          "relevancyScore": 0.7,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 0.819
+        },
+        {
+          "id": 1407,
+          "name": "Theatre",
+          "relevancyScore": 0.7,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 1.102
+        },
+        {
+          "id": 3859,
+          "name": "Beauty",
+          "relevancyScore": 0.6,
+          "percentInMonitor": 4.408,
+          "percentOnTwitter": 3.853
+        },
+        {
+          "id": 477,
+          "name": "Running",
+          "relevancyScore": 0.4,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 1.016
+        },
+        {
+          "id": 270,
+          "name": "Fitness",
+          "relevancyScore": 0.4,
+          "percentInMonitor": 4.408,
+          "percentOnTwitter": 4.041
+        },
+        {
+          "id": 633,
+          "name": "Xbox",
+          "relevancyScore": 0.3,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 1.088
+        },
+        {
+          "id": 961,
+          "name": "Rock Music",
+          "relevancyScore": 0.3,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 1.945
+        },
+        {
+          "id": 299,
+          "name": "Starbucks",
+          "relevancyScore": 0.1,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 1.249
+        },
+        {
+          "id": 1147,
+          "name": "Canada",
+          "relevancyScore": 0,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 1.399
+        },
+        {
+          "id": 501,
+          "name": "Shoes",
+          "relevancyScore": -0.1,
+          "percentInMonitor": 3.03,
+          "percentOnTwitter": 3.139
+        },
+        {
+          "id": 220,
+          "name": "Writing",
+          "relevancyScore": -0.1,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 1.526
+        },
+        {
+          "id": 28,
+          "name": "Sportscenter",
+          "relevancyScore": -0.2,
+          "percentInMonitor": 3.306,
+          "percentOnTwitter": 3.512
+        },
+        {
+          "id": 236,
+          "name": "Software Development",
+          "relevancyScore": -0.3,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 2.488
+        },
+        {
+          "id": 972,
+          "name": "Rihanna",
+          "relevancyScore": -0.3,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 1.718
+        },
+        {
+          "id": 915,
+          "name": "Ncaa",
+          "relevancyScore": -0.3,
+          "percentInMonitor": 1.928,
+          "percentOnTwitter": 2.286
+        },
+        {
+          "id": 373,
+          "name": "Health Care",
+          "relevancyScore": -0.4,
+          "percentInMonitor": 2.479,
+          "percentOnTwitter": 2.884
+        },
+        {
+          "id": 320,
+          "name": "Hip Hop",
+          "relevancyScore": -0.4,
+          "percentInMonitor": 7.163,
+          "percentOnTwitter": 7.599
+        },
+        {
+          "id": 905,
+          "name": "Paparazzi",
+          "relevancyScore": -0.7,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 2.36
+        },
+        {
+          "id": 534,
+          "name": "World News",
+          "relevancyScore": -0.8,
+          "percentInMonitor": 3.03,
+          "percentOnTwitter": 3.942
+        },
+        {
+          "id": 3274,
+          "name": "Finance",
+          "relevancyScore": -0.8,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 2.71
+        },
+        {
+          "id": 322,
+          "name": "Entertainment News",
+          "relevancyScore": -0.9,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 2.622
+        },
+        {
+          "id": 326,
+          "name": "Miley Cyrus",
+          "relevancyScore": -0.9,
+          "percentInMonitor": 2.479,
+          "percentOnTwitter": 3.592
+        },
+        {
+          "id": 248,
+          "name": "Animals",
+          "relevancyScore": -0.9,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 2.725
+        },
+        {
+          "id": 115,
+          "name": "Health",
+          "relevancyScore": -1.1,
+          "percentInMonitor": 6.887,
+          "percentOnTwitter": 8.121
+        },
+        {
+          "id": 494,
+          "name": "Video Games",
+          "relevancyScore": -1.2,
+          "percentInMonitor": 7.713,
+          "percentOnTwitter": 9.07
+        },
+        {
+          "id": 316,
+          "name": "Harry Styles",
+          "relevancyScore": -1.3,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 3.617
+        },
+        {
+          "id": 650,
+          "name": "Cars",
+          "relevancyScore": -1.5,
+          "percentInMonitor": 1.377,
+          "percentOnTwitter": 4.16
+        },
+        {
+          "id": 657,
+          "name": "News And Media",
+          "relevancyScore": -2.2,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 5.968
+        },
+        {
+          "id": 1364,
+          "name": "College",
+          "relevancyScore": -2.2,
+          "percentInMonitor": 1.653,
+          "percentOnTwitter": 6.296
+        },
+        {
+          "id": 480,
+          "name": "Mtv",
+          "relevancyScore": -2.6,
+          "percentInMonitor": 2.755,
+          "percentOnTwitter": 7.131
+        },
+        {
+          "id": 773,
+          "name": "Homework",
+          "relevancyScore": -2.6,
+          "percentInMonitor": 3.03,
+          "percentOnTwitter": 7.242
+        },
+        {
+          "id": 1176,
+          "name": "Astrology",
+          "relevancyScore": -2.9,
+          "percentInMonitor": 3.03,
+          "percentOnTwitter": 7.849
+        },
+        {
+          "id": 1415,
+          "name": "One Direction",
+          "relevancyScore": -3,
+          "percentInMonitor": 2.204,
+          "percentOnTwitter": 8.686
+        },
+        {
+          "id": 361,
+          "name": "Games",
+          "relevancyScore": -3.2,
+          "percentInMonitor": 3.306,
+          "percentOnTwitter": 8.822
+        },
+        {
+          "id": 253,
+          "name": "Fashion",
+          "relevancyScore": -3.9,
+          "percentInMonitor": 5.234,
+          "percentOnTwitter": 11.03
+        },
+        {
+          "id": 172,
+          "name": "Science And Technology",
+          "relevancyScore": -4.2,
+          "percentInMonitor": 8.264,
+          "percentOnTwitter": 13.721
+        },
+        {
+          "id": 1142,
+          "name": "Soccer",
+          "relevancyScore": -7.7,
+          "percentInMonitor": 3.581,
+          "percentOnTwitter": 31.166
+        }
+      ]
+    }
+  ],
+  "status": "success"
+}

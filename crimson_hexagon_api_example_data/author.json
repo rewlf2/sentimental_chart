@@ -1,0 +1,54 @@
+{
+  "authors": [
+    {
+      "startDate": "2017-05-28T00:00:00",
+      "endDate": "2017-05-29T00:00:00",
+      "authorDetails": [
+        {
+          "kloutScore": 72,
+          "detailsDate": "2017-05-28T00:00:00"
+        },
+        {
+          "kloutScore": 72,
+          "detailsDate": "2017-05-28T00:00:00"
+        },
+        {
+          "kloutScore": 70,
+          "detailsDate": "2017-05-28T00:00:00"
+        },
+        {
+          "kloutScore": 68,
+          "detailsDate": "2017-05-28T00:00:00"
+        },
+        {
+          "kloutScore": 68,
+          "detailsDate": "2017-05-28T00:00:00"
+        },
+        {
+          "kloutScore": 67,
+          "detailsDate": "2017-05-28T00:00:00"
+        },
+        {
+          "kloutScore": 66,
+          "detailsDate": "2017-05-28T00:00:00"
+        },
+        {
+          "kloutScore": 66,
+          "detailsDate": "2017-05-28T00:00:00"
+        },
+        {
+          "kloutScore": 66,
+          "detailsDate": "2017-05-28T00:00:00"
+        },
+        {
+          "kloutScore": 65,
+          "detailsDate": "2017-05-28T00:00:00"
+        }
+      ],
+      "numberOfAuthors": 890,
+      "docsPerAuthor": 1.216854,
+      "totalImpressions": 4494943
+    }
+  ],
+  "status": "success"
+}

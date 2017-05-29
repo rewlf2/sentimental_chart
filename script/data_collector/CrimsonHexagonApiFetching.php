@@ -1,37 +1,85 @@
 <?php
 
-class CrimsonHexagonApiFetching{
-    protected $id, $mysqli, 
-        $now;
-    
-    function __construct($id, mysqli $mysqli){
-        if($id < 0) throw new RuntimeException("id should not be negative: $id");
+/**
+ * handling crimson hexagon api data fetch and store data to database
+ */
+class CrimsonHexagonApiFetching
+{
+    /**
+     * for fetching which monitor 
+     *
+     * @var int
+     */
+    protected $monitorId;
 
-        $this->id = $id;
+    /**
+     * mysqli object for this api fetching to store data
+     *
+     * @var mysqli
+     */
+    protected $mysqli;
+    
+    /**
+     * store when this object is created, using for inserting fetch api data date
+     *
+     * @var Datetime
+     */
+    protected $now;
+
+
+    /**
+     * @param int $monitorId
+     * @param mysqli $mysqli
+     */
+    public function __construct($monitorId, mysqli $mysqli)
+    {
+        if($monitorId < 0)
+        {
+            throw new InvalidArgumentException("monitor id should not be negative: $monitorId");
+        }
+
+        $this->monitorId = $monitorId;
         $this->mysqli = $mysqli;
         $this->now = new Datetime(null, new DatetimeZone("utc"));
     }
 
-    function fetchSentiment(Datetime $start = null, Datetime $end = null){
-        $result = $this->mysqli->query("SELECT date(max(date)) as date FROM " . MysqlConfig::SENTIMENT_TABLE . " HAVING date IS NOT NULL");
-        if($start === null && $result->num_rows){
-            $start = new Datetime($result->fetch_array()[0], new DatetimeZone("utc"));
-        }else{
-            $start = new Datetime;
-            if(CrimsonHexagonConfig::FETCH_DATE_WHEN_DATA_EMPTY)
-                $start->modify("-" . CrimsonHexagonConfig::FETCH_DATE_WHEN_DATA_EMPTY);
-        }
-        $end = new Datetime(null, new DatetimeZone("utc"));
-        $end->modify("+1 day");
+    /**
+     * fetch all defined endpoint from the config, will call this class functions
+     *
+     * @return void
+     */
+    public function fetchAll(Datetime $start = null, Datetime $end = null)
+    {
+        // $this->fetchAuthors($start, $end);
+        // $this->fetchInterestaffinities($start, $end);
+        $this->fetchSentiment($start, $end);
+        // $this->fetchSources($start, $end);
+        // $this->fetchTwittermetrics($start, $end);
+        $this->fetchVolume($start, $end);
+        // $this->fetchWordcloud($start, $end);
+    }
 
-        $url = sprintf(CrimsonHexagonConfig::sentiment_endpoint, $this->id, $start->format("Y-m-d"), $end->format("Y-m-d"));
-        $api_result = $this->getApiResult($url);
-        if(!isset($api_result["results"]))
-            throw new RuntimeException("Api result missing results key: " . json_encode($api_result));
+    /**
+     * fetch and store sentiment endpoint data
+     *
+     * @param Datetime $start
+     * @param Datetime $end
+     * @return void
+     */
+    public function fetchSentiment(Datetime $start = null, Datetime $end = null)
+    {
+        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sentiment"], $start, $end);
+
+        $url = $this->createEndpointUrl(CrimsonHexagonConfig::endpoints['sentiment'],
+            $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
+
+        $apiResult = $this->getApiResult($url);
+        $this->checkApiResultKey($apiResult, "results");
         
-        foreach($api_result["results"] as $result){
-            $sentiment_data = [
-                "monitor_id" => $this->id,
+        foreach($apiResult["results"] as $result)
+        {
+            $sentimentData = [
+                "monitor_id" => $this->monitorId,
                 
                 "creation_date" => (new Datetime($result["creationDate"]))->format("Y-m-d H:i:s"),
 
@@ -82,85 +130,277 @@ class CrimsonHexagonApiFetching{
                 "emotion_fear_hidden" => $result["emotions"][6]["hidden"]
             ];
 
-            // check is the date of hour of data is already set
-            $query = "SELECT null FROM " . MysqlConfig::SENTIMENT_TABLE . " WHERE date(date) = date(?) AND hour = ?";
-            $stmt = $this->mysqli->prepare($query);
-            $stmt->bind_param("si", $sentiment_data["date"], $sentiment_data["hour"]);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            if($result->num_rows === 0)
-                MysqlHelper::insertData(MysqlConfig::SENTIMENT_TABLE, $sentiment_data, $this->mysqli);
+            if($this->isDataExistInTable(CrimsonHexagonConfig::tables['sentiment'], 
+                $sentimentData["date"], $sentimentData["hour"]))
+            {
+                MysqlHelper::insertData(CrimsonHexagonConfig::tables['sentiment'], 
+                    $sentimentData, $this->mysqli);
+            }
         }
     }
 
-    function fetchVolume(Datetime $start = null, Datetime $end = null){
-        $result = $this->mysqli->query("SELECT date(max(date)) as date FROM " . MysqlConfig::VOLUME_TABLE . " HAVING date IS NOT NULL");
-        if($start === null && $result->num_rows){
-            $start = new Datetime($result->fetch_array()[0], new DatetimeZone("utc"));
-        }else{
-            $start = new Datetime(null, new DatetimeZone("utc"));
-            if(CrimsonHexagonConfig::FETCH_DATE_WHEN_DATA_EMPTY)
-                $start->modify("-" . CrimsonHexagonConfig::FETCH_DATE_WHEN_DATA_EMPTY);
-        }
-        $end = new Datetime(null, new DatetimeZone("utc"));
-        $end->modify("+1 day");
+    /**
+     * fetch volume data from crimson hexagon, format api result data, store in database
+     *
+     * @param Datetime $start
+     * @param Datetime $end
+     * @return void
+     */
+    public function fetchVolume(Datetime $start = null, Datetime $end = null)
+    {
+        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["volume"], $start, $end);
 
-        if($start > $end)
-            throw new RuntimeException("start time is larger then end time: {${$start->format("Y-m-d")}} to {${$end->format("Y-m-d")}}");
+        $url = $this->createEndpointUrl(CrimsonHexagonConfig::endpoints['volume'], 
+            $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
 
-        $url = sprintf(CrimsonHexagonConfig::volume_endpoint, $this->id, $start->format("Y-m-d"), $end->format("Y-m-d"));
-        $api_result = $this->getApiResult($url);
-        if(!isset($api_result["volumes"]))
-            throw new RuntimeException("Api result missing volumes key: " . json_encode($api_result));
-
-        foreach($api_result["volumes"] as $volume){
-            $volume_data = [
-                "monitor_id" => $this->id,
+        $apiResult = $this->getApiResult($url);
+        $this->checkApiResultKey($apiResult, "volumes");
+     
+        foreach($apiResult["volumes"] as $volume)
+        {
+            $volumeData = [
+                "monitor_id" => $this->monitorId,
                 "date" => (new Datetime($volume["startDate"]))->format("Y-m-d"),
                 "number_of_documents" => $volume["numberOfDocuments"]
             ];
 
-            foreach($volume["volume"] as $hour => $volume_value){
+            foreach($volume["volume"] as $hour => $volume_value)
+            {
                 // only getting data that is before now()
-                if($volume_data["date"] === $this->now->format("Y-m-d")
-                  && $hour >= (int)$this->now->format("H")) 
+                if($volumeData["date"] === $this->now->format("Y-m-d")
+                  && $hour >= (int)$this->now->format("H"))
+                {
                     continue;
+                }
 
-                // copy the data that will not changes on each hour
-                $each_volume_data = $volume_data;
-                $each_volume_data["hour"] = $hour;
-                $each_volume_data["volume"] = $volume_value;
+                // copy the data that will not change on each hour
+                $eachVolumeData = $volumeData;
+                $eachVolumeData["hour"] = $hour;
+                $eachVolumeData["volume"] = $volume_value;
 
-                // check is data already set
-                $query = "SELECT null FROM " . MysqlConfig::VOLUME_TABLE . " WHERE date(date) = date(?) AND hour = ? LIMIT 1";
-                $stmt = $this->mysqli->prepare($query);
-                $stmt->bind_param("si", $volume_data["date"], $hour);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                // if data not exists, insert it
-                if($result->num_rows === 0){
-                    MysqlHelper::insertData(MysqlConfig::VOLUME_TABLE, $each_volume_data, $this->mysqli);            
+                // if data doesn't exist, insert it
+                if($this->isDataExistInTable(CrimsonHexagonConfig::tables['volume'], $volumeData["date"], $hour))
+                {
+                    MysqlHelper::insertData(CrimsonHexagonConfig::tables['volume'], $eachVolumeData, $this->mysqli);            
                 }
             }
         }
 
     }
 
+    /**
+     * fetch sources data from crimson hexagon, format api result data, store in database
+     *
+     * @param Datetime $start
+     * @param Datetime $end
+     * @return void
+     */
+    function fetchSources(Datetime $start = null, Datetime $end = null)
+    {
+        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sentiment"], $start, $end);
 
-    protected function getApiResult($url){
-        $api_content = file_get_contents($url);
+        $url = $this->createEndpointUrl(CrimsonHexagonConfig::volume_endpoint, 
+            $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
+        $apiResult = $this->getApiResult($url);
+        $this->checkApiResultKey($apiResult, "null");
 
-        $api_result = json_decode($api_content, true);
+    }
+
+    /**
+     * fetch interestaffinities data from crimson hexagon, format api result data, store in database
+     *
+     * @param Datetime $start
+     * @param Datetime $end
+     * @return void
+     */
+    function fetchInterestaffinities(Datetime $start = null, Datetime $end = null)
+    {
+        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sentiment"], $start, $end);
+        
+                $url = $this->createEndpointUrl(CrimsonHexagonConfig::volume_endpoint, 
+            $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
+        $apiResult = $this->getApiResult($url);
+        $this->checkApiResultKey($apiResult, "null");
+
+    }
+
+    /**
+     * fetch wordcloud data from crimson hexagon, format api result data, store in database
+     *
+     * @param Datetime $start
+     * @param Datetime $end
+     * @return void
+     */
+    function fetchWordcloud(Datetime $start = null, Datetime $end = null){
+        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sentiment"], $start, $end);
+
+        $url = $this->createEndpointUrl(CrimsonHexagonConfig::volume_endpoint, 
+            $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
+        $apiResult = $this->getApiResult($url);
+        $this->checkApiResultKey($apiResult, "null");
+        
+    }
+    
+    /**
+     * fetch authors data from crimson hexagon, format api result data, store in database
+     *
+     * @param Datetime $start
+     * @param Datetime $end
+     * @return void
+     */
+    function fetchAuthors(Datetime $start = null, Datetime $end = null)
+    {
+        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sentiment"], $start, $end);
+
+        $url = $this->createEndpointUrl(CrimsonHexagonConfig::volume_endpoint, 
+            $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
+        $apiResult = $this->getApiResult($url);
+        $this->checkApiResultKey($apiResult, "null");
+        
+    }
+
+    /**
+     * fetch twittermetrics data from crimson hexagon, format api result data, store in database
+     *
+     * @param Datetime $start
+     * @param Datetime $end
+     * @return void
+     */
+    function fetchTwittermetrics(Datetime $start = null, Datetime $end = null)
+    {
+        list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sentiment"], $start, $end);
+        
+        $url = $this->createEndpointUrl(CrimsonHexagonConfig::volume_endpoint, 
+            $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
+        $apiResult = $this->getApiResult($url);
+        $this->checkApiResultKey($apiResult, "null");
+    }
+
+    /**
+     * checking is data already exists in th database by using 
+     * 'date'(current date) and 'data_date'(the hour of date that insert the data)
+     *
+     * @param string $table
+     * @param string $date  Y-m-d formated date strng
+     * @param int $hour
+     * @return boolean
+     */
+    protected function isDataExistInTable($table, $date, $hour)
+    {
+        // checking if the date of hour of data has already been set
+        $query = "SELECT null FROM " . CrimsonHexagonConfig::tables['sentiment'] . 
+            " WHERE date(date) = date(?) AND hour = ?";
+        $stmt = $this->mysqli->prepare($query);
+        $stmt->bind_param("si", $date, $hour);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return (bool) $result->num_rows;
+    }
+
+    /**
+     * check the api result key is exist.
+     * this function is use for make sure the api result doesn't go too wrong
+     *
+     * @param array $apiResult
+     * @param string $key
+     * @return void
+     */
+    protected function checkApiResultKey(array $apiResult, $key)
+    {
+        if(!isset($apiResult[$key]))
+        {
+            throw new RuntimeException("Api result missing $key key: " . json_encode($apiResult));
+        }
+    }
+
+    /**
+     * create an endpointUrl from config url
+     *
+     * @param string $endpointUrl
+     * @param mixed[] ...$params for sprintf variable, will apply those variable to $endpointUrl
+     * @return string
+     */
+    protected function createEndpointUrl($endpointUrl, ... $params)
+    {
+        if(!$endpointUrl)
+        {
+            throw new InvalidArgumentException("end point url cannot be empty");
+        }
+
+        return sprintf($endpointUrl, ... $params);
+    }
+
+    /**
+     * if there is no record, it will use config FETCH_DATE_WHEN_DATA_EMPTY setting
+     * when start is null date is determent by the database last record or 
+     * when end is null, end will be today + 1 day
+     * @param string $endpointDbTable
+     * @param Datetime $start
+     * @param Datetime null
+     * @return array
+     */
+    protected function getStatEndDate($endpointDbTable, Datetime $start = null, Datetime $end = null)
+    {
+        if(!$endpointDbTable)
+        {
+            throw new InvalidArgumentException("end point db table cannot be empty");
+        }
+
+        if(!$end)
+        {
+            $end = new Datetime(null, new DatetimeZone("utc"));
+            $end->modify("+1 day");
+        }
+
+        if($start === null)
+        {
+            $result = $this->mysqli
+                ->query("SELECT date(max(date)) as date FROM $endpointDbTable"
+                    . " HAVING date IS NOT NULL");
+
+            if($result->num_rows)
+            {
+                $start = new Datetime($result->fetch_array()[0], new DatetimeZone("utc"));
+                if($start > $end)
+                {
+                    throw new RuntimeException("start time is larger then end time: {${$start->format("Y-m-d")}} to {${$end->format("Y-m-d")}}");
+                }
+            }
+            else
+            {
+                $start = new Datetime;
+                if(CrimsonHexagonConfig::FETCH_DATE_WHEN_DATA_EMPTY)
+                {
+                    $start->modify("-" . CrimsonHexagonConfig::FETCH_DATE_WHEN_DATA_EMPTY);
+                }
+            }
+        }
+
+        return [$start, $end];
+    }
+
+    /**
+     * call crimson hexagon api endpoint and return the json result
+     *
+     * @param string $url
+     * @return void
+     */
+    protected function getApiResult($url)
+    {
+        $apiContent = file_get_contents($url);
+
+        $apiResult = json_decode($apiContent, true);
         if(json_last_error())
             throw new RuntimeException("error while decoding api result: " . json_last_error_msg());
-        elseif(!$api_result)
+        elseif(!$apiResult)
             throw new RuntimeException("api result is empty");
-        elseif(!isset($api_result["status"]))
-            throw new RuntimeException("unable to check status field for api result " . json_encode($api_result));
-        elseif($api_result["status"] !== "success")
-           throw new RuntimeException("api result status is not success: {$api_result["status"]}");
+        elseif(!isset($apiResult["status"]))
+            throw new RuntimeException("unable to check status field for api result " . json_encode($apiResult));
+        elseif($apiResult["status"] !== "success")
+           throw new RuntimeException("api result status is not success: {$apiResult["status"]}");
         else
-            return $api_result;
+            return $apiResult;
     }
 
 }

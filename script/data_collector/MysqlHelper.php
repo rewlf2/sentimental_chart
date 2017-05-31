@@ -25,9 +25,13 @@ class MysqlHelper
             {
                 $types .= "d";
             }
-            else
+            elseif(strcasecmp($type, "string") === 0)
             {
                 $types .= "s";
+            }
+            else
+            {
+                throw new InvalidArgumentException("Unsupported type: $type");
             }
         }
 
@@ -47,12 +51,12 @@ class MysqlHelper
     {
         if(!$table)
         {
-            throw new RuntimeException("table name is empty");
+            throw new InvalidArgumentException("table name is empty");
         }
 
         if(!$columns)
         {
-            throw new RuntimeException("columns is empty");
+            throw new InvalidArgumentException("columns is empty");
         }
 
         //check is the column name is correct, should have no string to escape
@@ -60,14 +64,17 @@ class MysqlHelper
         {
             if($mysqli->real_escape_string($column) !== $column)
             {
-                throw new RuntimeException("something wrong on the column name of $column");
+                throw new InvalidArgumentException("something wrong on the column name of $column");
             }
         }
 
+        // generate column sql: table_name(col1, col2)
         $columnsSql = "(" . implode(",", $columns) . ")";
+
+        // generate values sql: (?,?)
         $valueSql = "(" . substr(str_repeat("?,", count($columns)),0, -1) . ")";
 
-        return "insert into $table{$columnsSql} value$valueSql";
+        return "INSERT INTO $table{$columnsSql} VALUES$valueSql";
     }
 
     /**
@@ -82,7 +89,7 @@ class MysqlHelper
     {
         if(!$result)
         {
-            throw new RuntimeException("result data is empty, something wrong on inserting data");
+            throw new InvalidArgumentException("result data is empty, something wrong on inserting data");
         }
 
         self::executeQuery($mysqli, self::getInsertQuery($mysqli, $table, array_keys($result)), $result);
@@ -101,13 +108,12 @@ class MysqlHelper
     {
         if(!$result)
         {
-            throw new RuntimeException("result data is empty, something wrong on inserting data and update");
+            throw new InvalidArgumentException("result data is empty, something wrong on inserting data and update");
         }
 
         $onDuplicateData = $result;
-        //remove the columns if it is not needed
-        // this is copy from facebook one, also i think this function maybe not use on this project, maybe i later go fix this helper and
-        // check all functions is correct 
+
+        //remove the columns if those data are not needed for update
         foreach($nonUpdatedColumns as $nonUpdatedColumn)
         {
             unset($onDuplicateData[$nonUpdatedColumn]);
@@ -115,7 +121,7 @@ class MysqlHelper
 
         if(!$onDuplicateData)
         {
-            throw new LengthException("onDuplicateData is empty? should have something to update on post");
+            throw new InvalidArgumentException("onDuplicateData is empty. should have something to update");
         } 
 
         //for bind_params
@@ -142,10 +148,10 @@ class MysqlHelper
     {
         if(!$onDuplicateKeyColumns)
         {
-            throw new RuntimeException("duplicate columns is empty");
+            throw new InvalidArgumentException("duplicate columns is empty");
         }
 
-        $onDuplicateKeyUpdateQuery = "on duplicate key update ";
+        $onDuplicateKeyUpdateQuery = "ON DUPLICATE KEY UPDATE ";
 
         foreach($onDuplicateKeyColumns as $onDuplicateKeyColumn)
         {
@@ -164,28 +170,24 @@ class MysqlHelper
      * @param mysqli $mysqli
      * @param string $query
      * @param array $params
-     * @return void
+     * @return mysqli_stmt
      */
     public static function executeQuery(mysqli $mysqli, $query, array $params = [])
     {
-        if(!$stmt = $mysqli->prepare($query))
+        $stmt = $mysqli->prepare($query);
+        
+        if($params)
         {
-            throw new RuntimeException($mysqli->error);
+            $stmt->bind_param(self::getBindTypes($params), ...array_values($params));
         }
 
-        if($params && !$stmt->bind_param(self::getBindTypes($params), ...array_values($params)))
-        {
-            throw new RuntimeException($stmt->error);
-        }
+        $stmt->execute();
 
-        if(!$stmt->execute())
-        {
-            throw new RuntimeException($stmt->error);
-        }
+        return $stmt;
     }
 
     /**
-     * getting last insert id
+     * getting last insert query auto generated column id
      *
      * @return int
      */

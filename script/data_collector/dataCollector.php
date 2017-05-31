@@ -3,8 +3,7 @@
  * Script for collecting data from crimson hexagon
  */
 
-set_include_path(get_include_path() . PATH_SEPARATOR . __DIR__);
-spl_autoload_register();
+include_once __DIR__ ."/autoload.php";
 
 echo "Starting calling api at ", (new Datetime(null, new DatetimeZone("utc")))->format("Y-m-d H:i:s"), "\n";
 

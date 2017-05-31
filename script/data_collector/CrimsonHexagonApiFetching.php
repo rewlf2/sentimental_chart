@@ -60,13 +60,13 @@ class CrimsonHexagonApiFetching
      */
     public function fetchAll(Datetime $start = null, Datetime $end = null)
     {
-        $this->fetchAuthors($start, $end);
-        $this->fetchInterestaffinities($start, $end);
+        // $this->fetchAuthors($start, $end);
+        // $this->fetchInterestaffinities($start, $end);
         $this->fetchSentiments($start, $end);
-        $this->fetchSources($start, $end);
-        $this->fetchTwittermetrics($start, $end);
+        // $this->fetchSources($start, $end);
+        // $this->fetchTwittermetrics($start, $end);
         $this->fetchVolumes($start, $end);
-        $this->fetchWordclouds($start, $end);
+        // $this->fetchWordclouds($start, $end);
     }
 
     /**
@@ -94,7 +94,7 @@ class CrimsonHexagonApiFetching
                 
                 "creation_date" => (new Datetime($result["creationDate"]))->format("Y-m-d H:i:s"),
 
-                "date" => $startDate->format("Y-m-d H:i:s"),
+                "date" => $startDate->format("Y-m-d"),
                 "hour" => $this->hour,
                 
                 "number_of_documents" => $result["numberOfDocuments"],
@@ -142,7 +142,7 @@ class CrimsonHexagonApiFetching
             ];
 
             $this->insertIfNotExists(CrimsonHexagonConfig::tables['sentiment'], $sentimentData, 
-                $starDate, $hour);
+                $startDate, $this->hour);
         }
     }
 
@@ -476,7 +476,8 @@ class CrimsonHexagonApiFetching
         $query = "SELECT null FROM " . CrimsonHexagonConfig::tables['sentiment'] . 
             " WHERE date(date) = date(?) AND hour = ?";
         $stmt = $this->mysqli->prepare($query);
-        $stmt->bind_param("si", $date->format("Y-m-d"), $hour);
+        $thatDate = $date->format("Y-m-d");
+        $stmt->bind_param("si", $thatDate, $hour);
         $stmt->execute();
         $result = $stmt->get_result();
 

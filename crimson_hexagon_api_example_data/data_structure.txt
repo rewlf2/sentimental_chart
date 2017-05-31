@@ -50,6 +50,10 @@ https://api.crimsonhexagon.com/api/monitor/interestaffinities?auth=tokenhere&id=
 // child id point to parent
 https://api.crimsonhexagon.com/api/monitor/wordcloud?auth=tokenHere&id=3735007902&start=2016-01-01&end=2016-07-01&filter=filter=site:blogspot.com,wordpress.com%7Ckeywords:android%7Cgeolocation:USA.NY.New%20York;GBR.Greater%20London.London
 
+posts
+// single table, geolocation data with prefix
+https://api.crimsonhexagon.com/api/monitor/posts?auth=tokenhere&id=123456789&start=2010-01-01&end=2020-01-01
+
 
 twitter
 // two table, author_details
@@ -63,9 +67,7 @@ https://api.crimsonhexagon.com/api/monitor/authors?auth=tokenhere&id=3735007902&
 https://api.crimsonhexagon.com/api/monitor/twittermetrics?auth=tokenhere&id=123456789&start=2010-01-01&end=2020-01-01
 
 
+
 // input???
 https://api.crimsonhexagon.com/api/monitor/train
 https://api.crimsonhexagon.com/api/content/upload
-
-
-post endpoint too huge, TODO after done above

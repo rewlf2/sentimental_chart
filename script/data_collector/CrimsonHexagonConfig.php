@@ -31,13 +31,25 @@ interface CrimsonHexagonConfig
         
         tables = [
             'sentiment' => 'ch_sentiment',
+
             'volume' => 'ch_volume',
+
             'sources' => 'ch_sources',
-            'interestaffinities' => 'ch_interestaffinities',
+            'source_top_site' => "ch_source_top_site",
+            'source_source' => 'ch_source_source',
+        
+            'interestaffinitie' => 'ch_interestaffinitie',
+            'interestaffinitie_info' => 'ch_interestaffinitie_info',
+
             'wordcloud' => 'ch_wordcloud',
+            'wordcloud_word' => 'ch_wordcloud_word',
 
             //twitter
-            'authors' => 'ch_authors',
-            'twittermetrics' => 'ch_twittermetrics'
+            'author' => 'ch_author',
+            'author_detail' => 'ch_author_detail',
+
+            'twittermetric' => 'ch_twittermetric',
+            'twittermetric_top_hash_tag' => 'ch_twittermetric_top_hash_tag',
+            'twittermetric_top_retweet' => 'ch_twittermetric_top_retweet'
         ];
 }

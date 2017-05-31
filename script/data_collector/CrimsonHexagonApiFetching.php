@@ -26,6 +26,13 @@ class CrimsonHexagonApiFetching
      */
     protected $now;
 
+    /**
+     * for storing current hour for insert
+     *
+     * @var int
+     */
+    protected $hour;
+
 
     /**
      * @param int $monitorId
@@ -41,6 +48,7 @@ class CrimsonHexagonApiFetching
         $this->monitorId = $monitorId;
         $this->mysqli = $mysqli;
         $this->now = new Datetime(null, new DatetimeZone("utc"));
+        $this->hour = (int) $this->now->format("H");
     }
 
     /**
@@ -52,14 +60,13 @@ class CrimsonHexagonApiFetching
      */
     public function fetchAll(Datetime $start = null, Datetime $end = null)
     {
-        // TODO
-        // $this->fetchAuthors($start, $end);
-        // $this->fetchInterestaffinities($start, $end);
-        $this->fetchSentiment($start, $end);
-        // $this->fetchSources($start, $end);
-        // $this->fetchTwittermetrics($start, $end);
-        $this->fetchVolume($start, $end);
-        // $this->fetchWordcloud($start, $end);
+        $this->fetchAuthors($start, $end);
+        $this->fetchInterestaffinities($start, $end);
+        $this->fetchSentiments($start, $end);
+        $this->fetchSources($start, $end);
+        $this->fetchTwittermetrics($start, $end);
+        $this->fetchVolumes($start, $end);
+        $this->fetchWordclouds($start, $end);
     }
 
     /**
@@ -69,7 +76,7 @@ class CrimsonHexagonApiFetching
      * @param Datetime $end
      * @return void
      */
-    public function fetchSentiment(Datetime $start = null, Datetime $end = null)
+    public function fetchSentiments(Datetime $start = null, Datetime $end = null)
     {
         list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sentiment"], $start, $end);
 
@@ -81,13 +88,14 @@ class CrimsonHexagonApiFetching
         
         foreach($apiResult["results"] as $result)
         {
+            $startDate = new Datetime($result["startDate"]);
             $sentimentData = [
                 "monitor_id" => $this->monitorId,
                 
                 "creation_date" => (new Datetime($result["creationDate"]))->format("Y-m-d H:i:s"),
 
-                "date" => (new Datetime($result["startDate"]))->format("Y-m-d H:i:s"),
-                "hour" => $this->now->format("H"),
+                "date" => $startDate->format("Y-m-d H:i:s"),
+                "hour" => $this->hour,
                 
                 "number_of_documents" => $result["numberOfDocuments"],
                 "number_of_relevant_documents" => $result["numberOfRelevantDocuments"],
@@ -133,12 +141,8 @@ class CrimsonHexagonApiFetching
                 "emotion_fear_hidden" => $result["emotions"][6]["hidden"]
             ];
 
-            if($this->isDataExistInTable(CrimsonHexagonConfig::tables['sentiment'], 
-                $sentimentData["date"], $sentimentData["hour"]))
-            {
-                MysqlHelper::insertData(CrimsonHexagonConfig::tables['sentiment'], 
-                    $sentimentData, $this->mysqli);
-            }
+            $this->insertIfNotExists(CrimsonHexagonConfig::tables['sentiment'], $sentimentData, 
+                $starDate, $hour);
         }
     }
 
@@ -149,7 +153,7 @@ class CrimsonHexagonApiFetching
      * @param Datetime $end
      * @return void
      */
-    public function fetchVolume(Datetime $start = null, Datetime $end = null)
+    public function fetchVolumes(Datetime $start = null, Datetime $end = null)
     {
         list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["volume"], $start, $end);
 
@@ -161,17 +165,18 @@ class CrimsonHexagonApiFetching
      
         foreach($apiResult["volumes"] as $volume)
         {
+            $startDate = new Datetime($volume["startDate"]);
             $volumeData = [
                 "monitor_id" => $this->monitorId,
-                "date" => (new Datetime($volume["startDate"]))->format("Y-m-d"),
+                "date" => $startDate->format("Y-m-d"),
                 "number_of_documents" => $volume["numberOfDocuments"]
             ];
 
-            foreach($volume["volume"] as $hour => $volume_value)
+            foreach($volume["volume"] as $hour => $volumeValue)
             {
                 // only getting data that is before now()
                 if($volumeData["date"] === $this->now->format("Y-m-d")
-                  && $hour >= (int)$this->now->format("H"))
+                  && $hour >= $this->hour)
                 {
                     continue;
                 }
@@ -179,16 +184,12 @@ class CrimsonHexagonApiFetching
                 // copy the data that will not change on each hour
                 $eachVolumeData = $volumeData;
                 $eachVolumeData["hour"] = $hour;
-                $eachVolumeData["volume"] = $volume_value;
+                $eachVolumeData["volume"] = $volumeValue;
 
-                // if data doesn't exist, insert it
-                if($this->isDataExistInTable(CrimsonHexagonConfig::tables['volume'], $volumeData["date"], $hour))
-                {
-                    MysqlHelper::insertData(CrimsonHexagonConfig::tables['volume'], $eachVolumeData, $this->mysqli);            
-                }
+                $this->insertIfNotExists(CrimsonHexagonConfig::tables['volume'], $eachVolumeData, 
+                    $startDate, $hour);
             }
         }
-
     }
 
     /**
@@ -202,48 +203,51 @@ class CrimsonHexagonApiFetching
     {
         list($start, $end) = $this->getStatEndDate(CrimsonHexagonConfig::tables["sources"], $start, $end);
 
-        $url = $this->createEndpointUrl(CrimsonHexagonConfig::endpoints["sources"], 
+        $url = $this->createEndpointUrl(CrimsonHexagonConfig::endpoints["sources"],
             $this->monitorId, $start->format("Y-m-d"), $end->format("Y-m-d"));
         $apiResult = $this->getApiResult($url);
         $this->checkApiResultKey($apiResult, "contentSources");
 
-        // TODO
-        throw new RuntimeException("TODO");
-
         foreach($apiResult["contentSources"] as $contentSource)
         {
-            $source = [
+            $startDate = new Datetime($contentSource["startDate"]);
+            $sourceData = [
                 "monitor_id" => $this->monitorId,
-                "date" => (new Datetime($contentSource["startDate"])),
-                "hour" => $this->now->format("H")
+                "date" => $startDate->format("Y-m-d"),
+                "hour" => $this->hour
             ];
 
-            // TODO each parent query
-            foreach($contentSource["topSites"] as $site => $score)
+            // only insert child data if the data is not exists
+            if($this->insertIfNotExists(CrimsonHexagonConfig::tables["sources"], $sourceData,
+                $startDate, $this->hour))
             {
-                $eachSource = [
-                    "id" => null,
+                $sourceId = MysqlHelper::getLastInsertId($this->mysqli);
 
-                    "site" => $site,
-                    "score" => $score
-                ];
-                // TODO each child
-                // TODO handle child element, insert parent element then insert child, use parent id as reference.
-                $query = "INSERT INTO xxx() VALUES();" .
-                    "SELECT last_insert_id() as id;";
+                foreach($contentSource["topSites"] as $site => $score)
+                {
+                    $topSiteData = [
+                        "source_id" => $sourceId,
+                        "site" => $site,
+                        "score" => $score
+                    ];
+
+                    MysqlHelper::insertData($this->mysqli, CrimsonHexagonConfig::tables["source_top_site"], $topSiteData);
+                }
+
+                foreach($contentSource["sources"] as $sourceName => $score)
+                {
+                    $sourceData = [
+                        "source_id" => $sourceId,
+                        "source_name" => $sourceName,
+                        "score" => $score
+                    ];
+
+                    MysqlHelper::insertData($this->mysqli, CrimsonHexagonConfig::tables["source_source"], $sourceData);
+                }
             }
 
-            foreach($contentSource["sources"] as $sourceName => $score)
-            {
-                $scoresData = [
-                    "id" => null,
-
-                    "source_name" => $sourceName,
-                    "score" => $score
-                ];
-                // TODO child
-            }
         }
+
     }
 
     /**
@@ -262,35 +266,33 @@ class CrimsonHexagonApiFetching
         $apiResult = $this->getApiResult($url);
         $this->checkApiResultKey($apiResult, "dailyResults");
 
-        // TODO
-        throw new RuntimeException("TODO");
-
         foreach($apiResult["dailyResults"] as $dailyResult)
         {
-            // parent
-            $result = [
+            $startDate = new Datetime($dailyResult["startDate"]);
+            $resultData = [
                 "monitor_id" => $this->monitorId,
-                "date" => (new Datetime($contentSource["startDate"])),
-                "hour" => $this->now->format("H")
+                "date" => $startDate->format("Y-m-d"),
+                "hour" => $this->hour
             ];
 
-            // TODO parent insert query            
-            foreach($dailyResult["info"] as $info)
+            // only insert child data if the data is not exists
+            if($this->insertIfNotExists(CrimsonHexagonConfig::tables["interestaffinitie"], $resultData,
+                $startDate, $this->hour))
             {
-                $info_result = $result + [
-                    "id_" => null,
+                $interestaffinitieId = MysqlHelper::getLastInsertId($this->mysqli);
+                foreach($dailyResult["info"] as $info)
+                {
+                    $infoData = [
+                        "interestaffinitie_id" => $interestaffinitieId,
+                        "id" => $info["id"],
+                        "name" => $info["name"],
+                        "relevancy_score" => $info["relevancyScore"],
+                        "percent_in_monitor" => $info["percentInMonitor"],
+                        "percent_on_twitter" => $info["percentOnTwitter"]
+                    ];
                     
-                    "id" => $info["id"],
-                    "name" => $info["name"],
-                    "relevancy_score" => $info["relevancyScore"],
-                    "percent_in_monitor" => $info["percentInMonitor"],
-                    "percent_on_twitter" => $info["percentOnTwitter"]
-                ];
-                //child
-
-                // TODO handle child element, insert parent element then insert child, use parent id as reference.
-                $query = "INSERT INTO xxx() VALUES();" .
-                    "SELECT last_insert_id() as id;";
+                    MysqlHelper::insertData($this->mysqli, CrimsonHexagonConfig::tables["interestaffinitie_info"], $infoData);
+                }
             }
         }
     }
@@ -312,15 +314,27 @@ class CrimsonHexagonApiFetching
         
         foreach($apiResult["data"] as $hashTag => $score)
         {
+            $starDate = $this->now;
             $wordCloud = [
                 "monitor_id" => $this->monitorId,
-                "date" => (new Datetime($contentSource["startDate"])),
-                "hour" => $this->now->format("H"),
-
-                "hash_tag" => $hashTag,
-                "score" => $score
+                "date" => $startDate->format("Y-m-d"),
+                "hour" => $this->hour
             ];
-            //TODO insert data
+
+            // only insert child data if the data is not exists
+            if($this->insertIfNotExists(CrimsonHexagonConfig::tables["wordcloud"], $wordCloud,
+                $startDate, $this->hour))
+            {
+                $wordCloudId = MysqlHelper::getLastInsertId($this->mysqli);
+
+                $wordCloudData = [
+                    "wordcolud_id" => $wordCloudId,
+                    "hash_tag" => $hashTag,
+                    "score" => $score
+                ];
+
+                MysqlHelper::insertData($this->mysqli, CrimsonHexagonConfig::tables["wordcloud_word"], $wordCloudData);
+            }
         }
     }
     
@@ -342,21 +356,30 @@ class CrimsonHexagonApiFetching
 
         foreach($apiResult["authors"] as $author)
         {
+            $startDate = new Datetime($author["startDate"]);
             $authorData = [
                 "monitor_id" => $this->monitorId,
-                "date" => (new Datetime($contentSource["startDate"])),
-                "hour" => $this->now->format("H"),                
+                "date" => $startDate->format("Y-m-d"),
+                "hour" => $this->hour,                
             ];
 
-            // TODO parent
-            foreach($author["authorDetails"] as $authorDetail)
+            // only insert child data if the data is not exists
+            if($this->insertIfNotExists(CrimsonHexagonConfig::tables["author"], $authorData,
+                $startDate, $this->hour))
             {
-                $authorDetailData = [
-                    "id" => null,
-                    "kloutScore" => $authorDetail["kloutScore"],
-                    "detailsDate" => $authorDetail["detailsDate"]
-                ];
-                // TODO insert child
+                $authorId = MysqlHelper::getLastInsertId($this->mysqli);
+
+                foreach($author["authorDetails"] as $authorDetail)
+                {
+                    $authorDetailData = [
+                        "author_id" => $authorId,
+                        "kloutScore" => $authorDetail["kloutScore"],
+                        "detailsDate" => $authorDetail["detailsDate"]
+                    ];
+
+                    MysqlHelper::insertData($this->mysqli, 
+                        CrimsonHexagonConfig::tables["author_detail"], $authorDetailData);
+                }
             }
         }
     }
@@ -379,36 +402,63 @@ class CrimsonHexagonApiFetching
 
         foreach($apiResult["dailyResults"] as $dailyResult)
         {
+            $starDate = new Datetime($contentSource["startDate"]);
             $resultData = [
                 "monitor_id" => $this->monitorId,
-                "date" => (new Datetime($contentSource["startDate"])),
-                "hour" => $this->now->format("H"),              
+                "date" => $startDate->format("Y-m-d"),
+                "hour" => $this->hour,              
             ];
 
-            // TODO parent
-            foreach($dailyResult["topHashtags"] as $hashTag => $score)
+            // only insert child data if the data is not exists
+            if($this->insertIfNotExists(CrimsonHexagonConfig::tables["twittermetric"], $resultData,
+                $startDate, $this->hour))
             {
-                $topHashTagData = [
-                    "id" => null,
+                $resultId = MysqlHelper::getLastInsertId($this->mysqli);
 
-                    "hash_tag" => $hashTag,
-                    "score" => $score
-                ];
-                //TODO child
-            }
+                foreach($dailyResult["topHashtags"] as $hashTag => $score)
+                {
+                    $topHashTagData = [
+                        "result_id" => $resultId,
+                        "hash_tag" => $hashTag,
+                        "score" => $score
+                    ];
 
-            foreach($dailyResult["topRetweets"] as $topRetweet)
-            {
-                $topRetweetData = [
-                    "id" => null,
-                    
-                    "url" => $topRetweet["url"],
-                    "is_original" => $topRetweet["isOriginal"],
-                    "retweet_count" => $topRetweet["retweetCount"],
-                ];
-                // TODO child 
+                    MysqlHelper::insertData($this->mysqli, 
+                        CrimsonHexagonConfig::tables["twittermetric_top_hash_tag"], $topHashTagData);
+                }
+
+                foreach($dailyResult["topRetweets"] as $topRetweet)
+                {
+                    $topRetweetData = [
+                        "result_id" => $resultId,
+                        "url" => $topRetweet["url"],
+                        "is_original" => $topRetweet["isOriginal"],
+                        "retweet_count" => $topRetweet["retweetCount"],
+                    ];
+
+                    MysqlHelper::insertData($this->mysqli, 
+                        CrimsonHexagonConfig::tables["twittermetric_top_retweet"], $topHashTagData);
+                }
             }
         }
+    }
+
+    /**
+     * insert api result data if the data is not in the mysql table
+     *
+     * @param string $table
+     * @param array $result
+     * @param Datetime $date
+     * @param int $hour
+     * @return boolean
+     */
+    protected function insertIfNotExists($table, array $result, Datetime $date, $hour){
+        if(!$isDataExists = $this->isDataExist($table, $date, $hour))
+        {
+            MysqlHelper::insertData($this->mysqli, $table, $result);            
+        }
+
+        return $isDataExists;
     }
 
     /**
@@ -416,17 +466,17 @@ class CrimsonHexagonApiFetching
      * 'date'(current date) and 'data_date'(the hour of date that insert the data)
      *
      * @param string $table
-     * @param string $date Y-m-d formatted date string
+     * @param Datetime $date
      * @param int $hour
      * @return boolean
      */
-    protected function isDataExistInTable($table, $date, $hour)
+    protected function isDataExist($table, Datetime $date, $hour)
     {
         // checking if the date of hour of data has already been set
         $query = "SELECT null FROM " . CrimsonHexagonConfig::tables['sentiment'] . 
             " WHERE date(date) = date(?) AND hour = ?";
         $stmt = $this->mysqli->prepare($query);
-        $stmt->bind_param("si", $date, $hour);
+        $stmt->bind_param("si", $date->format("Y-m-d"), $hour);
         $stmt->execute();
         $result = $stmt->get_result();
 

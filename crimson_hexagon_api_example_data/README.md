@@ -4,7 +4,9 @@ Reference
 
 This folder is use for look up on some data without calling the api.
 
-posts.json and posts_data.json are coming from the same endpoint /posts, it just more content example for posts. no differences
+posts.json is data without content.
+
+posts_data.json is data fetch with post content
 
 
 interestaffinities_daily is using interestaffinities with daily=true

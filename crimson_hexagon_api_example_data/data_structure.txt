@@ -1,7 +1,8 @@
 // 24 is hour, 365 is day 
 // middle number is endpoints count 
 // each endpoint has different numbers of rows of data, so one endpoint can have multiple rows of data pre hour call
-24 * 3 * 365 +  // results(sentiment), wordcloud 
+24 * 1 * 365 +  // results(sentiment)
+24 * 1 * 365 * 300 +  // wordcloud 
 24 * 1 * 365 * 24 + // dayandtime(volume)
 24 * 1 * 365 * 10 + // author
 24 * 1 * 365 * 97 +  // interestaffinities
@@ -9,13 +10,20 @@
 24 * 1 * 365 * (48 + 7) +  // sources
 24 * 1 * 365 * 488 // posts
 
+around 4,441,320 (4.44 mil) row of data per year (seems to be ok)
+* those rows of data is mostly small data. performance should not be an issue
+* above estimation are not include posts endpoint because posts data is huge
 
-around 1620600 (1.62 mil) row of data per year (seems to be ok)
-not include posts endpoint because posts data is large
+around 8,716,200 (8.71 mil) row of data per year including post data
+* posts rows of data contain content text and content text might be huge depending on the post itself
+
+
+---------------------------------------
 
 table counts (each number mean each category)
 1 + (for storing monitor)
-1 + 1 + 3 + 2 + 1 + 2 + 3
+1 + 1 + 3 + 2 + 2 + 2 + 3
++ 1 (for post content)
 
 tables for storing monitors ids
 pk int: id 
@@ -38,8 +46,8 @@ https://api.crimsonhexagon.com/api/monitor/sources?auth=tokenhere&id=123456789&s
 // child id point to parent
 https://api.crimsonhexagon.com/api/monitor/interestaffinities?auth=tokenhere&id=123456789&start=2010-01-01&end=2020-01-01&daily=true
 
-// single table, date + text + number -> group by date, hour
-// (basically similar to volume)
+// two table, wordcloud_word
+// child id point to parent
 https://api.crimsonhexagon.com/api/monitor/wordcloud?auth=tokenHere&id=3735007902&start=2016-01-01&end=2016-07-01&filter=filter=site:blogspot.com,wordpress.com%7Ckeywords:android%7Cgeolocation:USA.NY.New%20York;GBR.Greater%20London.London
 
 

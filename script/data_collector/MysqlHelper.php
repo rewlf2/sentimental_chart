@@ -37,12 +37,13 @@ class MysqlHelper
     /**
      * get the insert query string from array
      *
+     * @param mysqli $mysqli
      * @param string $table
      * @param array $columns
      * @param mysqli $mysqli
      * @return string
      */
-    public static function getInsertQuery($table, array $columns, mysqli $mysqli)
+    public static function getInsertQuery(mysqli $mysqli, $table, array $columns)
     {
         if(!$table)
         {
@@ -72,31 +73,31 @@ class MysqlHelper
     /**
      * insert result to mysql database
      *
+     * @param mysqli $mysqli
      * @param string $table
      * @param array $result
-     * @param mysqli $mysqli
      * @return void
      */
-    public static function insertData($table, array $result, mysqli $mysqli)
+    public static function insertData(mysqli $mysqli, $table, array $result)
     {
         if(!$result)
         {
             throw new RuntimeException("result data is empty, something wrong on inserting data");
         }
 
-        self::executeQuery(self::getInsertQuery($table, array_keys($result), $mysqli), $result, $mysqli);
+        self::executeQuery($mysqli, self::getInsertQuery($mysqli, $table, array_keys($result)), $result);
     }
 
     /**
      * insert those result to mysql table or update those field when key is duplicated 
      *
+     * @param mysqli $mysqli
      * @param string $table
      * @param array $result
      * @param array $nonUpdatedColumn
-     * @param mysqli $mysqli
      * @return void
      */
-    public static function insertAndUpdateData($table, array $result, array $nonUpdatedColumn = [], mysqli $mysqli)
+    public static function insertAndUpdateData(mysqli $mysqli, $table, array $result, array $nonUpdatedColumns = [])
     {
         if(!$result)
         {
@@ -105,7 +106,9 @@ class MysqlHelper
 
         $onDuplicateData = $result;
         //remove the columns if it is not needed
-        foreach($nonUpdatedColumn as $nonUpdatedColumn)
+        // this is copy from facebook one, also i think this function maybe not use on this project, maybe i later go fix this helper and
+        // check all functions is correct 
+        foreach($nonUpdatedColumns as $nonUpdatedColumn)
         {
             unset($onDuplicateData[$nonUpdatedColumn]);
         }
@@ -128,14 +131,14 @@ class MysqlHelper
     /**
      * create a insert on duplicate key update mysql query
      *
+     * @param mysqli $mysqli
      * @param string $table
      * @param array $columns
      * @param array $onDuplicateKeyColumns
-     * @param mysqli $mysqli
      * @return string
      */
-    public static function getInsertOnDuplicateKeyUpdateQuery($table, array $columns, array $onDuplicateKeyColumns, 
-        mysqli $mysqli)
+    public static function getInsertOnDuplicateKeyUpdateQuery(mysqli $mysqli, $table, array $columns, 
+        array $onDuplicateKeyColumns)
     {
         if(!$onDuplicateKeyColumns)
         {
@@ -158,12 +161,12 @@ class MysqlHelper
     /**
      * execute a query using the pass in mysqli object
      *
+     * @param mysqli $mysqli
      * @param string $query
      * @param array $params
-     * @param mysqli $mysqli
      * @return void
      */
-    public static function executeQuery($query, array $params = [], mysqli $mysqli)
+    public static function executeQuery(mysqli $mysqli, $query, array $params = [])
     {
         if(!$stmt = $mysqli->prepare($query))
         {
@@ -179,5 +182,16 @@ class MysqlHelper
         {
             throw new RuntimeException($stmt->error);
         }
+    }
+
+    /**
+     * getting last insert id
+     *
+     * @return int
+     */
+    public static function getLastInsertId(mysqli $mysqli){
+        $query = "SELECT last_insert_id()";
+        $result = $mysqli->query($query);
+        return (int) $result->fetch_array(MYSQLI_NUM)[0];
     }
 }

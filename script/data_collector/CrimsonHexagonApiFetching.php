@@ -46,6 +46,8 @@ class CrimsonHexagonApiFetching
     /**
      * fetch all defined endpoint from the config, will call this class functions
      *
+     * @param Datetime $start
+     * @param Datetime $end
      * @return void
      */
     public function fetchAll(Datetime $start = null, Datetime $end = null)
@@ -94,7 +96,7 @@ class CrimsonHexagonApiFetching
                 "category_negative_volume" => $result["categories"][0]["volume"],
                 "category_negative_hidden" => $result["categories"][0]["hidden"],
 
-                "category_positive_proportion" => $result["categories"][2]["proportion"],
+                "category_positive_proportion" => $result["categories"][1]["proportion"],
                 "category_positive_volume" => $result["categories"][1]["volume"],
                 "category_positive_hidden" => $result["categories"][1]["hidden"],
 
@@ -410,11 +412,11 @@ class CrimsonHexagonApiFetching
     }
 
     /**
-     * checking is data already exists in th database by using 
+     * checking is data already exists in the database by using
      * 'date'(current date) and 'data_date'(the hour of date that insert the data)
      *
      * @param string $table
-     * @param string $date  Y-m-d formated date strng
+     * @param string $date Y-m-d formatted date string
      * @param int $hour
      * @return boolean
      */
@@ -468,6 +470,7 @@ class CrimsonHexagonApiFetching
      * if there is no record, it will use config FETCH_DATE_WHEN_DATA_EMPTY setting
      * when start is null date is determent by the database last record or 
      * when end is null, end will be today + 1 day
+     *
      * @param string $endpointDbTable
      * @param Datetime $start
      * @param Datetime null
@@ -517,7 +520,7 @@ class CrimsonHexagonApiFetching
      * call crimson hexagon api endpoint and return the json result
      *
      * @param string $url
-     * @return void
+     * @return string $apiResult
      */
     protected function getApiResult($url)
     {

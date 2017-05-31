@@ -9,7 +9,7 @@ class MysqlHelper
      * get the bind types for mysqli bind_params
      *
      * @param array $data
-     * @return void
+     * @return string $types
      */
     public static function getBindTypes(array $data)
     {
@@ -40,7 +40,7 @@ class MysqlHelper
      * @param string $table
      * @param array $columns
      * @param mysqli $mysqli
-     * @return void
+     * @return string
      */
     public static function getInsertQuery($table, array $columns, mysqli $mysqli)
     {
@@ -121,7 +121,7 @@ class MysqlHelper
 
         //keys is columns
         $query = self::getInsertOnDuplicateKeyUpdateQuery($table, array_keys($result), array_keys($onDuplicateData), $mysqli);
-        self::executeQuery($query, $values);
+        self::executeQuery($query, $values, $mysqli);
     }
 
 
@@ -152,7 +152,7 @@ class MysqlHelper
         //trim last comma
         $onDuplicateKeyUpdateQuery = substr($onDuplicateKeyUpdateQuery, 0 , -1);
 
-        return self::getInsertQuery($table, $columns) . " $onDuplicateKeyUpdateQuery";
+        return self::getInsertQuery($table, $columns, $mysqli) . " $onDuplicateKeyUpdateQuery";
     }
 
     /**
